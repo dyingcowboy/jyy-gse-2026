@@ -1,0 +1,1935 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Excel performance - Improving calculation performance | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Discover how to improve workbook performance by focusing on calculation improvements in Excel 2016." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/office/vba/excel/concepts/excel-performance/excel-improving-calculation-performance" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Excel performance - Improving calculation performance" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/office/vba/excel/concepts/excel-performance/excel-improving-calculation-performance" />
+			<meta property="og:description" content="Discover how to improve workbook performance by focusing on calculation improvements in Excel 2016." />
+			<meta name="platform_id" content="c9941bd4-f9a3-98a4-39a8-4a97fabead3a" /> 
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-VBA" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/office/vba/breadcrumb/toc.json" />
+	
+		<meta name="ms.suite" content="office" />
+	
+		<meta name="ms.author" content="o365devx" />
+	
+		<meta name="author" content="FastExcel" />
+	
+		<meta name="ms.topic" content="concept-article" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="ms.service" content="excel" />
+	
+		<meta name="ms.subservice" content="vba" />
+	
+		<meta name="ms.date" content="2024-01-24T00:00:00Z" />
+	
+		<meta name="ms.localizationpriority" content="high" />
+	
+		<meta name="document_id" content="08332847-6ab9-7298-0d07-9a59f6f94629" />
+	
+		<meta name="document_version_independent_id" content="d20d6771-99cb-37aa-2af1-b4b85359ddeb" />
+	
+		<meta name="updated_at" content="2024-01-24T20:37:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/VBA-Docs/blob/live/excel/Concepts/Excel-Performance/excel-improving-calculation-performance.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/VBA-Docs/blob/2d1d0a7457d387992f9499e258c94b7e003f592a/excel/Concepts/Excel-Performance/excel-improving-calculation-performance.md" />
+	
+		<meta name="git_commit_id" content="2d1d0a7457d387992f9499e258c94b7e003f592a" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="MSDN.VBA-Docs" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../../../api/toc.json" />
+	
+		<meta name="feedback_product_url" content="" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="5178" />
+	
+		<meta name="asset_id" content="excel/concepts/excel-performance/excel-improving-calculation-performance" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="excel/Concepts/Excel-Performance/excel-improving-calculation-performance.md" />
+	
+		<meta name="previous_tlsh_hash" content="D13CABD2733C4710AFC23A4729A7B5C5A1F0C149B9F859A021736590E26B1DBB1F44889AEBAB732023330D4313B19A8E23CDB7B98479662737E9546DD01B9251D7D43FFEF9" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/VBA-Docs/blob/main/excel/Concepts/Excel-Performance/excel-improving-calculation-performance.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/office/vba/excel/concepts/excel-performance/excel-improving-calculation-performance?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/60932d05-feee-4685-a73b-595e25dd9318" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/c43bb58b-1190-419b-8d18-e6052371b599" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03585.8329-a252cb59/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "",
+    "feedbackProductUrl": "",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03585.8329-a252cb59/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		<script >bazadebezolkohpepadr="1181295425"</script><script type="text/javascript" src="https://learn.microsoft.com/akam/13/4669238e"  defer></script></head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					aria-expanded="false"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/MicrosoftDocs/VBA-Docs/blob/main/excel/Concepts/Excel-Performance/excel-improving-calculation-performance.md"
+			data-original_content_git_url="https://github.com/MicrosoftDocs/VBA-Docs/blob/live/excel/Concepts/Excel-Performance/excel-improving-calculation-performance.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/excel/Concepts/Excel-Performance/excel-improving-calculation-performance.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="excel-performance-improving-calculation-performance">Excel performance: Improving calculation performance</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	 <div class="content"><p><strong>Applies to:</strong> Excel | Excel 2013 | Excel 2016 | VBA</p>
+<p>The "Big Grid" of 1 million rows and 16,000 columns in Office Excel 2016, together with many other limit increases, greatly increases the size of worksheets that you can build compared to earlier versions of Excel. A single worksheet in Excel can now contain over 1,000 times as many cells as earlier versions.</p>
+<p>In earlier versions of Excel, many people created slow-calculating worksheets, and larger worksheets usually calculate more slowly than smaller ones. With the introduction of the "Big Grid" in Excel 2007, performance really matters. Slow calculation and data manipulation tasks such as sorting and filtering make it more difficult for users to concentrate on the task at hand, and lack of concentration increases errors.</p>
+<p>Recent Excel versions introduced several features to help you handle this capacity increase, such as the ability to use more than one processor at a time for calculations and common data set operations like refresh, sorting, and opening workbooks. Multithreaded calculation can substantially reduce worksheet calculation time. However, the most important factor that influences Excel calculation speed is still the way your worksheet is designed and built.</p>
+<p>You can modify most slow-calculating worksheets to calculate tens, hundreds, or even thousands of times faster. By identifying, measuring, and then improving the calculation obstructions in your worksheets, you can speed up calculation.</p>
+<h2 id="the-importance-of-calculation-speed">The importance of calculation speed</h2>
+<p>Poor calculation speed affects productivity and increases user error. User productivity and the ability to focus on a task deteriorates as response time lengthens.</p>
+<p>Excel has two main calculation modes that let you control when calculation occurs:</p>
+<ul>
+<li><p><strong>Automatic calculation</strong> - Formulas are automatically recalculated when you make a change.</p>
+</li>
+<li><p><strong>Manual calculation</strong> - Formulas are recalculated only when you request it (for example, by pressing F9).</p>
+</li>
+</ul>
+<p>For calculation times of less than about a tenth of a second, users feel that the system is responding instantly. They can use automatic calculation even when they enter data.</p>
+<p>Between a tenth of a second and one second, users can successfully keep a train of thought going, although they will notice the response time delay.</p>
+<p>As calculation time increases (usually between 1 and 10 seconds), users must switch to manual calculation when they enter data. User errors and annoyance levels start to increase, especially for repetitive tasks, and it becomes difficult to maintain a train of thought.</p>
+<p>For calculation times greater than 10 seconds, users become impatient and usually switch to other tasks while they wait. This can cause problems when the calculation is one of a sequence of tasks and the user loses track.</p>
+<h2 id="understanding-calculation-methods-in-excel">Understanding calculation methods in Excel</h2>
+<p>To improve the calculation performance in Excel, you must understand both the available calculation methods and how to control them.</p>
+<h3 id="full-calculation-and-recalculation-dependencies">Full calculation and recalculation dependencies</h3>
+<p>The smart recalculation engine in Excel tries to minimize calculation time by continuously tracking both the precedents and dependencies for each formula (the cells referenced by the formula) and any changes that were made since the last calculation. At the next recalculation, Excel recalculates only the following:</p>
+<ul>
+<li><p>Cells, formulas, values, or names that have changed or are flagged as needing recalculation.</p>
+</li>
+<li><p>Cells dependent on other cells, formulas, names, or values that need recalculation.</p>
+</li>
+<li><p>Volatile functions and visible conditional formats.</p>
+</li>
+</ul>
+<p>Excel continues calculating cells that depend on previously calculated cells even if the value of the previously calculated cell does not change when it is calculated.</p>
+<p>Because you change only part of the input data or a few formulas between calculations in most cases, this smart recalculation usually takes only a fraction of the time that a full calculation of all the formulas would take.</p>
+<p>In manual calculation mode, you can trigger this smart recalculation by pressing F9. You can force a full calculation of all the formulas by pressing Ctrl+Alt+F9, or you can force a complete rebuild of the dependencies and a full calculation by pressing Shift+Ctrl+Alt+F9.</p>
+<h3 id="calculation-process">Calculation process</h3>
+<p>Excel formulas that reference other cells can be put before or after the referenced cells (forward referencing or backward referencing). This is because Excel does not calculate cells in a fixed order, or by row or column. Instead, Excel dynamically determines the calculation sequence based on a list of all the formulas to calculate (the calculation chain) and the dependency information about each formula.</p>
+<p>Excel has distinct calculation phases:</p>
+<ol>
+<li><p>Build the initial calculation chain and determine where to begin calculating. This phase occurs when the workbook is loaded into memory.</p>
+</li>
+<li><p>Track dependencies, flag cells as uncalculated, and update the calculation chain. This phase executes at each cell entry or change, even in manual calculation mode. Ordinarily this executes so fast that you don't notice it, but in complex cases, response can be slow.</p>
+</li>
+<li><p>Calculate all formulas. As a part of the calculation process, Excel reorders and restructures the calculation chain to optimize future recalculations.</p>
+</li>
+<li><p>Update the visible parts of the Excel windows.</p>
+</li>
+</ol>
+<p>The third phase executes at each calculation or recalculation. Excel tries to calculate each formula in the calculation chain in turn, but if a formula depends on one or more formulas that have not yet been calculated, the formula is sent down the chain to be calculated again later. This means that a formula can be calculated multiple times per recalculation.</p>
+<p>The second time that you calculate a workbook is often significantly faster than the first time. This occurs for several reasons:</p>
+<ul>
+<li><p>Excel usually recalculates only cells that have changed, and their dependents.</p>
+</li>
+<li><p>Excel stores and reuses the most recent calculation sequence so that it can save most of the time used to determine the calculation sequence.</p>
+</li>
+<li><p>With multiple core computers, Excel tries to optimize the way the calculations are spread across the cores based on the results of the previous calculation.</p>
+</li>
+<li><p>In an Excel session, both Windows and Excel cache recently used data and programs for faster access.</p>
+</li>
+</ul>
+<h2 id="calculating-workbooks-worksheets-and-ranges">Calculating workbooks, worksheets, and ranges</h2>
+<p>You can control what is calculated by using the different Excel calculation methods.</p>
+<h3 id="calculate-all-open-workbooks">Calculate all open workbooks</h3>
+<p>Each recalculation and full calculation calculates all the workbooks that are currently open, resolves any dependencies within and between workbooks and worksheets, and resets all previously uncalculated (dirty) cells as calculated.</p>
+<h3 id="calculate-selected-worksheets">Calculate selected worksheets</h3>
+<p>You can also recalculate only the selected worksheets by using <strong>Shift+F9</strong>. This resolves dependencies for the worksheet and resets all previously uncalculated (dirty) cells as calculated.</p>
+<p>In previous versions of Excel, the behavior was different and dirty cells were not set as calculated after the calculation completed. If user-defined functions relied on this behavior, these functions should be made volatile instead, as explained in the <a href="#volatile-functions" data-linktype="self-bookmark">Volatile functions</a> section in this article.</p>
+<h3 id="calculate-a-range-of-cells">Calculate a range of cells</h3>
+<p>Excel also allows for the calculation of a range of cells by using the Visual Basic for Applications (VBA) methods <strong>Range.CalculateRowMajorOrder</strong> and <strong>Range.Calculate</strong>:</p>
+<ul>
+<li><p><strong>Range.CalculateRowMajorOrder</strong> calculates the range left to right and top to bottom, ignoring all dependencies.</p>
+</li>
+<li><p><strong>Range.Calculate</strong> calculates the range resolving all dependencies within the range.</p>
+</li>
+</ul>
+<p>Because <strong>CalculateRowMajorOrder</strong> does not resolve any dependencies within the range that is being calculated, it is usually significantly faster than <strong>Range.Calculate</strong>. However, it should be used with care because it may not give the same results as <strong>Range.Calculate</strong>.</p>
+<p><strong>Range.Calculate</strong> is one of the most useful tools in Excel for performance optimization because you can use it to time and compare the calculation speed of different formulas.</p>
+<p>For more information, see <a href="excel-performance-and-limit-improvements" data-linktype="relative-path">Excel performance: Performance and limit improvements</a>.</p>
+<h3 id="volatile-functions">Volatile functions</h3>
+<p>A volatile function is always recalculated at each recalculation even if it does not seem to have any changed precedents. Using many volatile functions slows down each recalculation, but it makes no difference to a full calculation. You can make a user-defined function volatile by including <strong>Application.Volatile</strong> in the function code.</p>
+<p>Some of the built-in functions in Excel are obviously volatile: <strong>RAND()</strong>, <strong>NOW()</strong>, <strong>TODAY()</strong>. Others are less obviously volatile: <strong>OFFSET()</strong>, <strong>CELL()</strong>, <strong>INDIRECT()</strong>, <strong>INFO()</strong>.</p>
+<p>Some functions that have previously been documented as volatile are not in fact volatile: <strong>INDEX()</strong>, <strong>ROWS()</strong>, <strong>COLUMNS()</strong>, <strong>AREAS()</strong>.</p>
+<h3 id="volatile-actions">Volatile actions</h3>
+<p>Volatile actions are actions that trigger a recalculation, and include the following:</p>
+<ul>
+<li>Clicking a row or column divider when in automatic mode.</li>
+<li>Inserting or deleting rows, columns, or cells on a sheet.</li>
+<li>Adding, changing, or deleting defined names.</li>
+<li>Renaming worksheets or changing worksheet position when in automatic mode.</li>
+<li>Filtering, hiding, or un-hiding rows.</li>
+<li>Opening a workbook when in automatic mode. If the workbook was last calculated by a different version of Excel, opening the workbook usually results in a full calculation.</li>
+<li>Saving a workbook in manual mode if the <strong>Calculate before Save</strong> option is selected.</li>
+</ul>
+<h3 id="formula-and-name-evaluation-circumstances">Formula and name evaluation circumstances</h3>
+<p>A formula or part of a formula is immediately evaluated (calculated), even in manual calculation mode, when you do one of the following:</p>
+<ul>
+<li>Enter or edit the formula.</li>
+<li>Enter or edit the formula by using the Function Wizard.</li>
+<li>Enter the formula as an argument in the Function Wizard.</li>
+<li>Select the formula in the formula bar and press F9 (press Esc to undo and revert to the formula), or click <strong>Evaluate Formula</strong>.</li>
+</ul>
+<p>A formula is flagged as uncalculated when it refers to (depends on) a cell or formula that has one of these conditions:</p>
+<ul>
+<li>It was entered.</li>
+<li>It was changed.</li>
+<li>It's in an AutoFilter list, and the criteria drop-down list was enabled.</li>
+<li>It's flagged as uncalculated.</li>
+</ul>
+<p>A formula that is flagged as uncalculated is evaluated when the worksheet, workbook, or Excel instance that contains it is calculated or recalculated.</p>
+<p>The circumstances that cause a defined name to be evaluated differ from those for a formula in a cell:</p>
+<ul>
+<li>A defined name is evaluated every time that a formula that refers to it is evaluated so that using a name in multiple formulas can cause the name to be evaluated multiple times.</li>
+<li>Names that are not referred to by any formula are not calculated even by a full calculation.</li>
+</ul>
+<h3 id="data-tables">Data tables</h3>
+<p>Excel data tables (<strong>Data</strong> tab &gt; <strong>Data Tools</strong> group &gt; <strong>What-If Analysis</strong> &gt; <strong>Data Table</strong>) should not be confused with the table feature (<strong>Home</strong> tab &gt; <strong>Styles</strong> group &gt; <strong>Format as Table</strong>, or, <strong>Insert</strong> tab &gt; <strong>Tables</strong> group &gt; <strong>Table</strong>). Excel data tables do multiple recalculations of the workbook, each driven by the different values in the table. Excel first calculates the workbook normally. For each pair of row and column values, it then substitutes the values, does a single-threaded recalculation, and stores the results in the data table.</p>
+<p><em>Data table recalculation always uses only a single processor.</em></p>
+<p>Data tables give you a convenient way to calculate multiple variations and view and compare the results of the variations. Use the <strong>Automatic except Tables</strong> calculation option to stop Excel from automatically triggering the multiple calculations at each calculation, but still calculate all dependent formulas except tables.</p>
+<h2 id="controlling-calculation-options">Controlling calculation options</h2>
+<p>Excel has a range of options that enable you to control the way it calculates. You can change the most frequently used options in Excel by using the <strong>Calculation</strong> group on the <strong>Formulas</strong> tab on the Ribbon.</p>
+<p><em>Figure 1. Calculation group on the Formulas tab</em></p>
+<p><img src="../../../images/ocd_xl2010_ta_improvingcalculationperf_fig01.jpg" alt="Calculation options on the Formulas tab" data-linktype="relative-path"></p>
+<p>To see more Excel calculation options, on the <strong>File</strong> tab, click <strong>Options</strong>. In the <strong>Excel Options</strong> dialog box, click the <strong>Formulas</strong> tab.</p>
+<p><em>Figure 2. Calculation options on the Formulas tab in Excel Options</em></p>
+<p><img src="../../../images/ocd_xl2010_ta_improvingcalculationperf_fig02.jpg" alt="Calculation options in backstage view" data-linktype="relative-path"></p>
+<p>Many calculation options (<strong>Automatic</strong>, <strong>Automatic except for data tables</strong>, <strong>Manual</strong>, <strong>Recalculate workbook before saving</strong>) and the iteration settings (<strong>Enable iterative calculation</strong>, <strong>Maximum Iterations</strong>, <strong>Maximum Change</strong>) operate at the application level instead of at the workbook level (they are the same for all open workbooks).</p>
+<p>To find advanced calculation options, on the <strong>File</strong> tab, click <strong>Options</strong>. In the <strong>Excel Options</strong> dialog box, click <strong>Advanced</strong>. Under the <strong>Formulas</strong> section, set calculation options.</p>
+<p><em>Figure 3. Advanced calculation options</em></p>
+<p><img src="../../../images/ocd_xl2010_ta_improvingcalculationperf_fig03.jpg" alt="Advanced calculation options in backstage view" data-linktype="relative-path"></p>
+<p>When you start Excel, or when it is running without any workbooks open, the initial calculation mode and iteration settings are set from the first non-template, non-add-in workbook that you open. This means that the calculation settings in workbooks opened later are ignored, although, of course, you can manually change the settings in Excel at any time. When you save a workbook, the current calculation settings are stored in the workbook.</p>
+<h3 id="automatic-calculation">Automatic calculation</h3>
+<p>Automatic calculation mode means that Excel automatically recalculates all open workbooks at every change and when you open a workbook. Usually when you open a workbook in automatic mode and Excel recalculates, you don't see the recalculation because nothing has changed since the workbook was saved.</p>
+<p>You might notice this calculation when you open a workbook in a later version of Excel than you used the last time that the workbook was calculated (for example, Excel 2016 versus Excel 2013). Because the Excel calculation engines are different, Excel performs a full calculation when it opens a workbook that was saved using an earlier version of Excel.</p>
+<h3 id="manual-calculation">Manual calculation</h3>
+<p>Manual calculation mode means that Excel recalculates all open workbooks only when you request it by pressing F9 or Ctrl+Alt+F9, or when you save a workbook. For workbooks that take more than a fraction of a second to recalculate, you must set calculation to manual mode to avoid a delay when you make changes.</p>
+<p>Excel tells you when a workbook in manual mode needs recalculation by displaying <strong>Calculate</strong> in the status bar. The status bar also displays <strong>Calculate</strong> if your workbook contains circular references and the iteration option is selected.</p>
+<h3 id="iteration-settings">Iteration settings</h3>
+<p>If you have intentional circular references in your workbook, the iteration settings enable you to control the maximum number of times the workbook is recalculated (iterations) and the convergence criteria (maximum change: when to stop). Clear the iteration box so that if you have accidental circular references, Excel will warn you and will not try to solve them.</p>
+<h3 id="workbook-forcefullcalculation-property">Workbook ForceFullCalculation property</h3>
+<p>When you set this workbook property to True, Excel's Smart Recalculation is turned off and every recalculation recalculates all the formulas in all the open workbooks. For some complex workbooks, the time taken to build and maintain the dependency trees needed for Smart Recalculation is larger than the time saved by Smart Recalculation.</p>
+<p>If your workbook takes an excessively long time to open, or making small changes takes a long time even in manual calculation mode, it may be worth trying ForceFullCalculation.</p>
+<p><strong>Calculate</strong> will appear in the status bar if the workbook <strong>ForceFullCalculation</strong> property has been set to True.</p>
+<p>You can control this setting using the <strong>VBE</strong> (Alt+F11), selecting <strong>ThisWorkbook</strong> in the <strong>Project Explorer</strong> (Ctrl+R) and showing the <strong>Properties Window</strong> (F4).</p>
+<p><em>Figure 4. Setting the Workbook.ForceFullCalculation property</em></p>
+<p><img src="../../../images/improvingcalculationperf_forcefull.jpg" alt="Setting ForceFullCalculation" data-linktype="relative-path"></p>
+<h2 id="making-workbooks-calculate-faster">Making workbooks calculate faster</h2>
+<p>Use the following steps and methods to make your workbooks calculate faster.</p>
+<h3 id="processor-speed-and-multiple-cores">Processor speed and multiple cores</h3>
+<p>For most versions of Excel, a faster processor will, of course, enable faster Excel calculation. The multithreaded calculation engine introduced in Excel 2007 enables Excel to make excellent use of multiprocessor systems, and you can expect significant performance gains with most workbooks.</p>
+<p>For most large workbooks, the calculation performance gains from multiple processors scale almost linearly with the number of physical processors. However, hyper-threading of physical processors only produces a small performance gain.</p>
+<p>For more information, see <a href="excel-performance-and-limit-improvements" data-linktype="relative-path">Excel performance: Performance and limit improvements</a>.</p>
+<h3 id="ram">RAM</h3>
+<p>Paging to a virtual-memory paging file is slow. You must have enough physical RAM for the operating system, Excel, and your workbooks. If you have more than occasional hard disk activity during calculation, and you are not running user-defined functions that trigger disk activity, you need more RAM.</p>
+<p>As mentioned, recent versions of Excel can make effective use of large amounts of memory, and the 32-bit version of Excel 2007 and Excel 2010 can handle a single workbook or a combination of workbooks using up to 2 GB of memory.</p>
+<p>The 32-bit versions of Excel 2013 and Excel 2016 that use the Large Address Aware (LAA) feature can use up to 3 or 4 GB of  memory, depending on the version of Windows installed. The 64-bit version of Excel can handle larger workbooks. For more information, see the "Large data sets, LAA, and 64-bit Excel" section in <a href="excel-performance-and-limit-improvements" data-linktype="relative-path">Excel performance: Performance and limit improvements</a>.</p>
+<p>A rough guideline for efficient calculation is to have enough RAM to hold the largest set of workbooks that you need to have open at the same time, plus 1 to 2 GB for Excel and the operating system, plus additional RAM for any other running applications.</p>
+<h3 id="measuring-calculation-time">Measuring calculation time</h3>
+<p>To make workbooks calculate faster, you must be able to accurately measure calculation time. You need a timer that is faster and more accurate than the VBA <strong>Time</strong> function. The <strong>MICROTIMER()</strong> function shown in the following code example uses Windows API calls to the system high-resolution timer. It can measure time intervals down to small numbers of microseconds. Be aware that because Windows is a multitasking operating system, and because the second time that you calculate something, it may be faster than the first time, the times that you get usually don't repeat exactly. To achieve the best accuracy, measure time calculation tasks several times and average the results.</p>
+<p>For more information about how the Visual Basic Editor can significantly affect VBA user-defined function performance, see the "Faster VBA user-defined functions" section in <a href="excel-tips-for-optimizing-performance-obstructions" data-linktype="relative-path">Excel performance: Tips for optimizing performance obstructions</a>.</p>
+<pre><code class="lang-vb">#If VBA7 Then
+    Private Declare PtrSafe Function getFrequency Lib "kernel32" Alias _
+        "QueryPerformanceFrequency" (cyFrequency As Currency) As Long
+    Private Declare PtrSafe Function getTickCount Lib "kernel32" Alias _
+        "QueryPerformanceCounter" (cyTickCount As Currency) As Long
+#Else
+    Private Declare Function getFrequency Lib "kernel32" Alias _
+        "QueryPerformanceFrequency" (cyFrequency As Currency) As Long
+    Private Declare Function getTickCount Lib "kernel32" Alias _
+        "QueryPerformanceCounter" (cyTickCount As Currency) As Long
+#End If
+Function MicroTimer() As Double
+'
+
+' Returns seconds.
+    Dim cyTicks1 As Currency
+    Static cyFrequency As Currency
+    '
+    MicroTimer = 0
+
+' Get frequency.
+    If cyFrequency = 0 Then getFrequency cyFrequency
+
+' Get ticks.
+    getTickCount cyTicks1                            
+
+' Seconds
+    If cyFrequency Then MicroTimer = cyTicks1 / cyFrequency 
+End Function
+</code></pre>
+<p>To measure calculation time, you must call the appropriate calculation method. These subroutines give you calculation time for a range, recalculation time for a sheet or all open workbooks, or full calculation time for all open workbooks.</p>
+<p>Copy all these subroutines and functions into a standard VBA module. To open the VBA editor, press Alt+F11. On the <strong>Insert</strong> menu, select <strong>Module</strong>, and then copy the code into the module.</p>
+<pre><code class="lang-vb">
+Sub RangeTimer()
+    DoCalcTimer 1
+End Sub
+Sub SheetTimer()
+    DoCalcTimer 2
+End Sub
+Sub RecalcTimer()
+    DoCalcTimer 3
+End Sub
+Sub FullcalcTimer()
+    DoCalcTimer 4
+End Sub
+
+Sub DoCalcTimer(jMethod As Long)
+    Dim dTime As Double
+    Dim dOvhd As Double
+    Dim oRng As Range
+    Dim oCell As Range
+    Dim oArrRange As Range
+    Dim sCalcType As String
+    Dim lCalcSave As Long
+    Dim bIterSave As Boolean
+    '
+    On Error GoTo Errhandl
+
+' Initialize
+    dTime = MicroTimer              
+
+    ' Save calculation settings.
+    lCalcSave = Application.Calculation
+    bIterSave = Application.Iteration
+    If Application.Calculation &lt;&gt; xlCalculationManual Then
+        Application.Calculation = xlCalculationManual
+    End If
+    Select Case jMethod
+    Case 1
+
+        ' Switch off iteration.
+
+        If Application.Iteration &lt;&gt; False Then
+            Application.Iteration = False
+        End if
+        
+        ' Max is used range.
+
+        If Selection.Count &gt; 1000 Then
+            Set oRng = Intersect(Selection, Selection.Parent.UsedRange)
+        Else
+            Set oRng = Selection
+        End If
+
+        ' Include array cells outside selection.
+
+        For Each oCell In oRng
+            If oCell.HasArray Then
+                If oArrRange Is Nothing Then 
+                    Set oArrRange = oCell.CurrentArray
+                End If
+                If Intersect(oCell, oArrRange) Is Nothing Then
+                    Set oArrRange = oCell.CurrentArray
+                    Set oRng = Union(oRng, oArrRange)
+                End If
+            End If
+        Next oCell
+
+        sCalcType = "Calculate " &amp; CStr(oRng.Count) &amp; _
+            " Cell(s) in Selected Range: "
+    Case 2
+        sCalcType = "Recalculate Sheet " &amp; ActiveSheet.Name &amp; ": "
+    Case 3
+        sCalcType = "Recalculate open workbooks: "
+    Case 4
+        sCalcType = "Full Calculate open workbooks: "
+    End Select
+
+' Get start time.
+    dTime = MicroTimer
+    Select Case jMethod
+    Case 1
+        If Val(Application.Version) &gt;= 12 Then
+            oRng.CalculateRowMajorOrder
+        Else
+            oRng.Calculate
+        End If
+    Case 2
+        ActiveSheet.Calculate
+    Case 3
+        Application.Calculate
+    Case 4
+        Application.CalculateFull
+    End Select
+
+' Calculate duration.
+    dTime = MicroTimer - dTime
+    On Error GoTo 0
+
+    dTime = Round(dTime, 5)
+    MsgBox sCalcType &amp; " " &amp; CStr(dTime) &amp; " Seconds", _
+        vbOKOnly + vbInformation, "CalcTimer"
+
+Finish:
+
+    ' Restore calculation settings.
+    If Application.Calculation &lt;&gt; lCalcSave Then
+         Application.Calculation = lCalcSave
+    End If
+    If Application.Iteration &lt;&gt; bIterSave Then
+         Application.Iteration = bIterSave
+    End If
+    Exit Sub
+Errhandl:
+    On Error GoTo 0
+    MsgBox "Unable to Calculate " &amp; sCalcType, _
+        vbOKOnly + vbCritical, "CalcTimer"
+    GoTo Finish
+End Sub
+</code></pre>
+<p>To run the subroutines in Excel, press Alt+F8. Select the subroutine you want, and then click <strong>Run</strong>.</p>
+<p><em>Figure 5. The Excel Macro window showing the calculation timers</em></p>
+<p><img src="../../../images/ocd_xl2010_ta_improvingcalculationperf_fig05.jpg" alt="Excel macro window" data-linktype="relative-path"></p>
+<h2 id="finding-and-prioritizing-calculation-obstructions">Finding and prioritizing calculation obstructions</h2>
+<p>Most slow-calculating workbooks have only a few problem areas or obstructions that consume most of the calculation time. If you don't already know where they are, use the drill-down approach outlined in this section to find them. If you do know where they are, you must measure the calculation time that is used by each obstruction so that you can prioritize your work to remove them.</p>
+<h3 id="drill-down-approach-to-finding-obstructions">Drill-down approach to finding obstructions</h3>
+<p>The drill-down approach starts by timing the calculation of the workbook, the calculation of each worksheet, and the blocks of formulas on slow-calculating sheets. Do each step in order and note the calculation times.</p>
+<h4 id="to-find-obstructions-using-the-drill-down-approach">To find obstructions using the drill-down approach</h4>
+<ol>
+<li><p>Ensure that you have only one workbook open and no other tasks are running.</p>
+</li>
+<li><p>Set calculation to manual.</p>
+</li>
+<li><p>Make a backup copy of the workbook.</p>
+</li>
+<li><p>Open the workbook that contains the Calculation Timers macros, or add them to the workbook.</p>
+</li>
+<li><p>Check the used range by pressing Ctrl+End on each worksheet in turn.</p>
+<p>This shows where the last used cell is. If this is beyond where you expect it to be, consider deleting the excess columns and rows and saving the workbook. For more information, see the "Minimizing the used range" section in <a href="excel-tips-for-optimizing-performance-obstructions" data-linktype="relative-path">Excel performance: Tips for optimizing performance obstructions</a>.</p>
+</li>
+<li><p>Run the <strong>FullCalcTimer</strong> macro.</p>
+<p>The time to calculate all the formulas in the workbook is usually the worst-case time.</p>
+</li>
+<li><p>Run the <strong>RecalcTimer</strong> macro.</p>
+<p>A recalculation immediately after a full calculation usually gives you the best-case time.</p>
+</li>
+<li><p>Calculate workbook volatility as the ratio of recalculation time to full calculation time.</p>
+<p>This measures the extent to which volatile formulas and the evaluation of the calculation chain are obstructions.</p>
+</li>
+<li><p>Activate each sheet and run the <strong>SheetTimer</strong> macro in turn.</p>
+<p>Because you just recalculated the workbook, this gives you the recalculate time for each worksheet. This should enable you to determine which ones are the problem worksheets.</p>
+</li>
+<li><p>Run the <strong>RangeTimer</strong> macro on selected blocks of formulas.</p>
+</li>
+<li><p>For each problem worksheet, divide the columns or rows into a small number of blocks.</p>
+</li>
+<li><p>Select each block in turn, and then run the <strong>RangeTimer</strong> macro on the block.</p>
+</li>
+<li><p>If necessary, drill down further by subdividing each block into a smaller number of blocks.</p>
+</li>
+<li><p>Prioritize the obstructions.</p>
+</li>
+</ol>
+<h3 id="speeding-up-calculations-and-reducing-obstructions">Speeding up calculations and reducing obstructions</h3>
+<p>It's not the number of formulas or the size of a workbook that consumes the calculation time. It's the number of cell references and calculation operations, and the efficiency of the functions being used.</p>
+<p>Because most worksheets are constructed by copying formulas that contain a mixture of absolute and relative references, they usually contain a large number of formulas that contain repeated or duplicated calculations and references.</p>
+<p>Avoid complex mega-formulas and array formulas. In general, it is better to have more rows and columns and fewer complex calculations. This gives both the smart recalculation and the multithreaded calculation in Excel a better opportunity to optimize the calculations. It's also easier to understand and debug. The following are a few rules to help you speed up workbook calculations.</p>
+<h4 id="first-rule-remove-duplicated-repeated-and-unnecessary-calculations">First rule: Remove duplicated, repeated, and unnecessary calculations</h4>
+<p>Look for duplicated, repeated, and unnecessary calculations, and figure out approximately how many cell references and calculations are required for Excel to calculate the result for this obstruction. Think how you might obtain the same result with fewer references and calculations.</p>
+<p>Usually this involves one or more of the following steps:</p>
+<ul>
+<li><p>Reduce the number of references in each formula.</p>
+</li>
+<li><p>Move the repeated calculations to one or more helper cells, and then reference the helper cells from the original formulas.</p>
+</li>
+<li><p>Use additional rows and columns to calculate and store intermediate results once so that you can reuse them in other formulas.</p>
+</li>
+</ul>
+<h4 id="second-rule-use-the-most-efficient-function-possible">Second rule: Use the most efficient function possible</h4>
+<p>When you find an obstruction that involves a function or array formulas, determine whether there is a more efficient way to achieve the same result. For example:</p>
+<ul>
+<li><p>Lookups on sorted data can be tens or hundreds of times more efficient than lookups on unsorted data.</p>
+</li>
+<li><p>VBA user-defined functions are usually slower than the built-in functions in Excel (although carefully written VBA functions can be fast).</p>
+</li>
+<li><p>Minimize the number of used cells in functions like <strong>SUM</strong> and <strong>SUMIF</strong>. Calculation time is proportional to the number of used cells (unused cells are ignored).</p>
+</li>
+<li><p>Consider replacing slow array formulas with user-defined functions.</p>
+</li>
+</ul>
+<h4 id="third-rule-make-good-use-of-smart-recalculation-and-multithreaded-calculation">Third rule: Make good use of smart recalculation and multithreaded calculation</h4>
+<p>The better use you make of smart recalculation and multithreaded calculation in Excel, the less processing has to be done every time that Excel recalculates, so:</p>
+<ul>
+<li><p>Avoid volatile functions such as <strong>INDIRECT</strong> and <strong>OFFSET</strong> where you can, unless they are significantly more efficient than the alternatives. (Well-designed use of <strong>OFFSET</strong> is often fast.)</p>
+</li>
+<li><p>Minimize the size of the ranges that you are using in array formulas and functions.</p>
+</li>
+<li><p>Break array formulas and mega-formulas out into separate helper columns and rows.</p>
+</li>
+<li><p>Avoid single-threaded functions:</p>
+<ul>
+<li>PHONETIC</li>
+<li>CELL when either the "format" or "address" argument is used</li>
+<li>INDIRECT</li>
+<li>GETPIVOTDATA</li>
+<li>CUBEMEMBER</li>
+<li>CUBEVALUE</li>
+<li>CUBEMEMBERPROPERTY</li>
+<li>CUBESET</li>
+<li>CUBERANKEDMEMBER</li>
+<li>CUBEKPIMEMBER</li>
+<li>CUBESETCOUNT</li>
+<li>ADDRESS where the fifth parameter (the sheet_name) is given</li>
+<li>Any database function (DSUM, DAVERAGE, and so on) that refers to a PivotTable</li>
+<li>ERROR.TYPE</li>
+<li>HYPERLINK</li>
+<li>VBA and COM add-in user-defined functions</li>
+</ul>
+</li>
+<li><p>Avoid iterative use of data tables and circular references: both of these always calculate single-threaded.</p>
+</li>
+</ul>
+<h4 id="fourth-rule-time-and-test-each-change">Fourth rule: Time and test each change</h4>
+<p>Some of the changes that you make might surprise you, either by not giving the answer that you thought they would, or by calculating more slowly than you expected. Therefore, you should time and test each change, as follows:</p>
+<ol>
+<li><p>Time the formula that you want to change by using the <strong>RangeTimer</strong> macro.</p>
+</li>
+<li><p>Make the change.</p>
+</li>
+<li><p>Time the changed formula by using the <strong>RangeTimer</strong> macro.</p>
+</li>
+<li><p>Check that the changed formula still gives the correct answer.</p>
+</li>
+</ol>
+<h3 id="rule-examples">Rule examples</h3>
+<p>The following sections provide examples of how to use the rules to speed up calculation.</p>
+<h4 id="period-to-date-sums">Period-to-date sums</h4>
+<p>For example, you need to calculate the period-to-date sums of a column that contains 2,000 numbers. Assume that column A contains the numbers, and that column B and column C should contain the period-to-date totals.</p>
+<p>You could write the formula using <strong>SUM</strong>, which is an efficient function.</p>
+<pre><code class="lang-vb">  B1=SUM($A$1:$A1)
+  B2=SUM($A$1:$A2)
+</code></pre>
+<p><em>Figure 6. Example of period-to-date SUM formulas</em></p>
+<p><img src="../../../images/ocd_xl2010_ta_improvingcalculationperf_fig06.jpg" alt="Period to date SUM formula example" data-linktype="relative-path"></p>
+<p>Copy the formula down to B2000.</p>
+<p>How many cell references are added up by <strong>SUM</strong> in total? B1 refers to one cell, and B2000 refers to 2,000 cells. The average is 1,000 references per cell, so the total number of references is 2 million. Selecting the 2,000 formulas and using the <strong>RangeTimer</strong> macro shows you that the 2,000 formulas in column B calculate in 80 milliseconds. Most of these calculations are duplicated many times: <strong>SUM</strong> adds A1 to A2 in each formula from B2:B2000.</p>
+<p>You can eliminate this duplication if you write the formulas as follows.</p>
+<pre><code class="lang-vb">  C1=A1
+  C2=C1+A1
+</code></pre>
+<p>Copy this formula down to C2000.</p>
+<p>Now how many cell references are added up in total? Each formula, except the first formula, uses two cell references. Therefore, the total is 1999*2+1=3999. This is a factor of 500 fewer cell references.</p>
+<p><strong>RangeTimer</strong> indicates that the 2,000 formulas in column C calculate in 3.7 milliseconds compared to the 80 milliseconds for column B. This change has a performance improvement factor of only 80/3.7=22 instead of 500 because there is a small overhead per formula.</p>
+<h4 id="error-handling">Error handling</h4>
+<p>If you have a calculation-intensive formula where you want the result to be shown as zero if there is an error (this frequently occurs with exact match lookups), you can write this in several ways.</p>
+<ul>
+<li><p>You can write it as a single formula, which is slow:</p>
+<p><code>B1=IF(ISERROR(time expensive formula),0,time expensive formula)</code></p>
+</li>
+<li><p>You can write it as two formulas, which is fast:</p>
+<p><code>A1=time expensive formula</code></p>
+<p><code>B1=IF(ISERROR(A1),0,A1)</code></p>
+</li>
+<li><p>Or you can use the <strong>IFERROR</strong> function, which is designed to be fast and simple, and is a single formula:</p>
+<p><code>B1=IFERROR(time expensive formula,0)</code></p>
+</li>
+</ul>
+<h4 id="dynamic-count-unique">Dynamic count unique</h4>
+<p><em>Figure 7. Example list of data for count unique</em></p>
+<p><img src="../../../images/ocd_xl2010_ta_improvingcalculationperf_fig07.jpg" alt="Count unique data example" data-linktype="relative-path"></p>
+<p>If you have a list of 11,000 rows of data in column A, which frequently changes, and you need a formula that dynamically calculates the number of unique items in the list, ignoring blanks, following are several possible solutions.</p>
+<ul>
+<li><p><strong>Array formulas</strong> (use Ctrl+Shift+Enter); <strong>RangeTimer</strong> indicates that this takes 13.8 seconds.</p>
+<pre><code class="lang-vb">{=SUM(IF(LEN(A2:A11000)&gt;0,1/COUNTIF(A2:A11000,A2:A11000)))}
+</code></pre>
+</li>
+<li><p><strong>SUMPRODUCT</strong> usually calculates faster than an equivalent array formula. This formula takes 10.0 seconds, and gives an improvement factor of 13.8/10.0=1.38, which is better, but not good enough.</p>
+<pre><code class="lang-vb">=SUMPRODUCT((A2:A11000&lt;&gt;"")/COUNTIF(A2:A11000,A2:A11000&amp;amp;""))
+</code></pre>
+</li>
+<li><p><strong>User-defined functions</strong>. The following code example shows a VBA user-defined function that uses the fact that the index to a collection must be unique. For an explanation of some techniques that are used, see the section about user-defined functions in the "Using functions efficiently" section in <a href="excel-tips-for-optimizing-performance-obstructions" data-linktype="relative-path">Excel performance: Tips for optimizing performance obstructions</a>. This formula, <code>=COUNTU(A2:A11000)</code>, takes only 0.061 seconds. This gives an improvement factor of 13.8/0.061=226.</p>
+<pre><code class="lang-vb">Public Function COUNTU(theRange As Range) As Variant
+    Dim colUniques As New Collection
+    Dim vArr As Variant
+    Dim vCell As Variant
+    Dim vLcell As Variant
+    Dim oRng As Range
+
+    Set oRng = Intersect(theRange, theRange.Parent.UsedRange)
+    vArr = oRng
+    On Error Resume Next
+    For Each vCell In vArr
+    If vCell &lt;&gt; vLcell Then
+        If Len(CStr(vCell)) &gt; 0 Then
+             colUniques.Add vCell, CStr(vCell)
+        End If
+    End If
+    vLcell = vCell
+    Next vCell
+
+    COUNTU = colUniques.Count
+End Function
+</code></pre>
+</li>
+<li><p><strong>Adding a column of formulas</strong>. If you look at the previous sample of the data, you can see that it is sorted (Excel takes 0.5 seconds to sort the 11,000 rows). You can exploit this by adding a column of formulas that checks if the data in this row is the same as the data in the previous row. If it is different, the formula returns 1. Otherwise, it returns 0.</p>
+<p>Add this formula to cell B2.</p>
+<pre><code class="lang-vb">  =IF(AND(A2&lt;&gt;"",A2&lt;&gt;A1),1,0)
+</code></pre>
+<p>Copy the formula, and then add a formula to add up column B.</p>
+<pre><code class="lang-vb">  =SUM(B2:B11000)
+</code></pre>
+<p>A full calculation of all these formulas takes 0.027 seconds. This gives an improvement factor of 13.8/0.027=511.</p>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Excel enables you to effectively manage much larger worksheets, and it provides significant improvements in calculation speed compared with early versions. When you create large worksheets, it is easy to build them in a way that causes them to calculate slowly. Slow-calculating worksheets increase errors because users find it difficult to maintain concentration while calculation is occurring.</p>
+<p>By using a straightforward set of techniques, you can speed up most slow-calculating worksheets by a factor of 10 or 100. You can also apply these techniques as you design and create worksheets to ensure that they calculate quickly.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="excel-performance-and-limit-improvements" data-linktype="relative-path">Excel performance: Performance and limit improvements</a></li>
+<li><a href="excel-tips-for-optimizing-performance-obstructions" data-linktype="relative-path">Excel performance: Tips for optimizing performance obstructions</a></li>
+<li><a href="https://msdn.microsoft.com/office/aa905411.aspx" data-linktype="external">Excel Developer Portal</a></li>
+</ul>
+<h3 id="support-and-feedback">Support and feedback</h3>
+<p>Have questions or feedback about Office VBA or this documentation? Please see <a href="../../../articles/feedback-support" data-linktype="relative-path">Office VBA support and feedback</a> for guidance about the ways you can receive support and provide feedback.</p>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2024-01-24T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2024-01-24
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			<noscript><img src="https://learn.microsoft.com/akam/13/pixel_4669238e?a=dD0yNmM3ZjY2ODJjOTEwZmVjZTA1ZWYzOTM5ODI0M2MzZTZiNjU4YjUwJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body>
+		</html>

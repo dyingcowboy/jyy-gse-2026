@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en-US" class="loading-site no-js">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="https://www.eiffel.com/xmlrpc.php" />
+
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- This site is optimized with the Yoast SEO plugin v28.8 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Design by Contract Introduction - Eiffel Software - The Home of EiffelStudio</title>
+	<link rel="canonical" href="https://www.eiffel.com/values/design-by-contract/introduction/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Design by Contract Introduction - Eiffel Software - The Home of EiffelStudio" />
+	<meta property="og:description" content="Building bug-free O-O software: An Introduction to Design by Contract™ In our opinion the techniques outlined below are as important as the rest of object technology &#8212; as important as classes, objects, inheritance, polymorphism and dynamic binding, which they complement &#8212; although only a subset of the O-O literature has so far devoted its attention [...]" />
+	<meta property="og:url" content="https://www.eiffel.com/values/design-by-contract/introduction/" />
+	<meta property="og:site_name" content="Eiffel Software - The Home of EiffelStudio" />
+	<meta property="article:modified_time" content="2026-01-29T10:52:38+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="14 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.eiffel.com\/values\/design-by-contract\/introduction\/","url":"https:\/\/www.eiffel.com\/values\/design-by-contract\/introduction\/","name":"Design by Contract Introduction - Eiffel Software - The Home of EiffelStudio","isPartOf":{"@id":"https:\/\/www.eiffel.com\/#website"},"datePublished":"2014-01-29T22:31:24+00:00","dateModified":"2026-01-29T10:52:38+00:00","breadcrumb":{"@id":"https:\/\/www.eiffel.com\/values\/design-by-contract\/introduction\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.eiffel.com\/values\/design-by-contract\/introduction\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/www.eiffel.com\/values\/design-by-contract\/introduction\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.eiffel.com\/"},{"@type":"ListItem","position":2,"name":"Values","item":"https:\/\/www.eiffel.com\/values\/"},{"@type":"ListItem","position":3,"name":"Design by Contract™","item":"https:\/\/www.eiffel.com\/values\/design-by-contract\/"},{"@type":"ListItem","position":4,"name":"Design by Contract Introduction"}]},{"@type":"WebSite","@id":"https:\/\/www.eiffel.com\/#website","url":"https:\/\/www.eiffel.com\/","name":"Eiffel Software - The Home of EiffelStudio","description":"Above and beyond","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.eiffel.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//challenges.cloudflare.com' />
+<link rel='dns-prefetch' href='//client.crisp.chat' />
+<link rel='prefetch' href='https://www.eiffel.com/wp-content/themes/flatsome/assets/js/flatsome.js?ver=e2eddd6c228105dac048' />
+<link rel='prefetch' href='https://www.eiffel.com/wp-content/themes/flatsome/assets/js/chunk.slider.js?ver=3.20.9' />
+<link rel='prefetch' href='https://www.eiffel.com/wp-content/themes/flatsome/assets/js/chunk.popups.js?ver=3.20.9' />
+<link rel='prefetch' href='https://www.eiffel.com/wp-content/themes/flatsome/assets/js/chunk.tooltips.js?ver=3.20.9' />
+<link rel="alternate" type="application/rss+xml" title="Eiffel Software - The Home of EiffelStudio &raquo; Feed" href="https://www.eiffel.com/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.eiffel.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.eiffel.com%2Fvalues%2Fdesign-by-contract%2Fintroduction%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.eiffel.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.eiffel.com%2Fvalues%2Fdesign-by-contract%2Fintroduction%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://www.eiffel.com/wp-includes/blocks/list/style.min.css */
+</style>
+
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--primary: #446084;--wp--preset--color--secondary: #C05530;--wp--preset--color--success: #627D47;--wp--preset--color--alert: #b20000;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){margin-left: auto !important;margin-right: auto !important;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: none;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-primary-color{color: var(--wp--preset--color--primary) !important;}.has-secondary-color{color: var(--wp--preset--color--secondary) !important;}.has-success-color{color: var(--wp--preset--color--success) !important;}.has-alert-color{color: var(--wp--preset--color--alert) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-primary-background-color{background-color: var(--wp--preset--color--primary) !important;}.has-secondary-background-color{background-color: var(--wp--preset--color--secondary) !important;}.has-success-background-color{background-color: var(--wp--preset--color--success) !important;}.has-alert-background-color{background-color: var(--wp--preset--color--alert) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-primary-border-color{border-color: var(--wp--preset--color--primary) !important;}.has-secondary-border-color{border-color: var(--wp--preset--color--secondary) !important;}.has-success-border-color{border-color: var(--wp--preset--color--success) !important;}.has-alert-border-color{border-color: var(--wp--preset--color--alert) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='contact-form-7-css' href='https://www.eiffel.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.2.3' media='all' />
+<link rel='stylesheet' id='slb_core-css' href='https://www.eiffel.com/wp-content/plugins/simple-lightbox/client/css/app.css?ver=2.9.5' media='all' />
+<link rel='stylesheet' id='tablepress-default-css' href='https://www.eiffel.com/wp-content/tablepress-combined.min.css?ver=56' media='all' />
+<style id="kadence-blocks-global-variables-inline-css">
+:root {--global-kb-font-size-sm:clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);--global-kb-font-size-md:clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);--global-kb-font-size-lg:clamp(1.75rem, 1.576rem + 0.543vw, 2rem);--global-kb-font-size-xl:clamp(2.25rem, 1.728rem + 1.63vw, 3rem);--global-kb-font-size-xxl:clamp(2.5rem, 1.456rem + 3.26vw, 4rem);--global-kb-font-size-xxxl:clamp(2.75rem, 0.489rem + 7.065vw, 6rem);}:root {--global-palette1: var(--kb-token--primitive--color--brand--primary, #3182CE);--global-palette2: var(--kb-token--primitive--color--brand--secondary, #2B6CB0);--global-palette3: var(--kb-token--primitive--color--neutral--900, #1A202C);--global-palette4: var(--kb-token--primitive--color--neutral--700, #2D3748);--global-palette5: var(--kb-token--primitive--color--neutral--600, #4A5568);--global-palette6: var(--kb-token--primitive--color--neutral--500, #718096);--global-palette7: var(--kb-token--primitive--color--neutral--100, #EDF2F7);--global-palette8: var(--kb-token--primitive--color--neutral--50, #F7FAFC);--global-palette9: var(--kb-token--primitive--color--neutral--0, #ffffff);}
+:root,:root:where(.kb-tokens){--kb-token--primitive--color--brand--primary:#3182CE;--kb-token--primitive--color--brand--secondary:#2B6CB0;--kb-token--primitive--color--brand--accent:#ED8936;--kb-token--primitive--color--brand--button:#3633e1;--kb-token--primitive--color--brand--button-hover:#2f2ffc;--kb-token--primitive--color--neutral--0:#ffffff;--kb-token--primitive--color--neutral--50:#F7FAFC;--kb-token--primitive--color--neutral--100:#EDF2F7;--kb-token--primitive--color--neutral--200:#E2E8F0;--kb-token--primitive--color--neutral--300:#CBD5E0;--kb-token--primitive--color--neutral--500:#718096;--kb-token--primitive--color--neutral--600:#4A5568;--kb-token--primitive--color--neutral--700:#2D3748;--kb-token--primitive--color--neutral--900:#1A202C;--kb-token--primitive--color--notice--success:#38A169;--kb-token--primitive--color--notice--warning:#DD6B20;--kb-token--primitive--color--notice--error:#E53E3E;--kb-token--primitive--color--notice--info:#3182CE;--kb-token--primitive--color--transparent:transparent;--kb-token--primitive--dimension--spacing--xxs:0.5rem;--kb-token--primitive--dimension--spacing--xs:1rem;--kb-token--primitive--dimension--spacing--sm:1.5rem;--kb-token--primitive--dimension--spacing--md:2rem;--kb-token--primitive--dimension--spacing--lg:3rem;--kb-token--primitive--dimension--spacing--xl:4rem;--kb-token--primitive--dimension--spacing--xxl:5rem;--kb-token--primitive--dimension--spacing--3xl:6.5rem;--kb-token--primitive--dimension--spacing--4xl:8rem;--kb-token--primitive--dimension--spacing--5xl:10rem;--kb-token--primitive--dimension--gap--none:0rem;--kb-token--primitive--dimension--gap--xs:0.5rem;--kb-token--primitive--dimension--gap--sm:1rem;--kb-token--primitive--dimension--gap--md:2rem;--kb-token--primitive--dimension--gap--lg:4rem;--kb-token--primitive--dimension--font-size--sm:clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);--kb-token--primitive--dimension--font-size--md:clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);--kb-token--primitive--dimension--font-size--lg:clamp(1.75rem, 1.576rem + 0.543vw, 2rem);--kb-token--primitive--dimension--font-size--xl:clamp(2.25rem, 1.728rem + 1.63vw, 3rem);--kb-token--primitive--dimension--font-size--xxl:clamp(2.5rem, 1.456rem + 3.26vw, 4rem);--kb-token--primitive--dimension--font-size--xxxl:clamp(2.75rem, 0.489rem + 7.065vw, 6rem);--kb-token--primitive--dimension--radius--xs:0.125rem;--kb-token--primitive--dimension--radius--sm:0.25rem;--kb-token--primitive--dimension--radius--md:0.375rem;--kb-token--primitive--dimension--radius--lg:0.5rem;--kb-token--primitive--dimension--radius--xl:0.75rem;--kb-token--primitive--dimension--radius--2xl:1rem;--kb-token--primitive--dimension--radius--3xl:1.5rem;--kb-token--primitive--dimension--radius--full:9999px;--kb-token--primitive--dimension--border-width--sm:1px;--kb-token--primitive--dimension--border-width--md:2px;--kb-token--primitive--dimension--border-width--lg:4px;--kb-token--primitive--dimension--icon-size--sm:1rem;--kb-token--primitive--dimension--icon-size--md:1.5rem;--kb-token--primitive--dimension--icon-size--lg:2.25rem;--kb-token--primitive--fontSize--xs:0.64rem;--kb-token--primitive--fontSize--sm:0.8rem;--kb-token--primitive--fontSize--md:1rem;--kb-token--primitive--fontSize--lg:1.25rem;--kb-token--primitive--fontSize--xl:1.563rem;--kb-token--primitive--fontSize--2xl:1.953rem;--kb-token--primitive--fontSize--3xl:2.441rem;--kb-token--primitive--shadow--xs:0px 1px 2px 0px #1717171f;--kb-token--primitive--shadow--sm:0px 2px 4px 0px #1717171f;--kb-token--primitive--shadow--md:0px 2px 8px 0px #1717171f;--kb-token--semantic--color--text:var(--kb-token--primitive--color--neutral--900);--kb-token--semantic--color--text-muted:var(--kb-token--primitive--color--neutral--500);--kb-token--semantic--color--surface:var(--kb-token--primitive--color--neutral--0);--kb-token--semantic--color--surface-alt:var(--kb-token--primitive--color--neutral--50);--kb-token--semantic--color--border:var(--kb-token--primitive--color--neutral--200);--kb-token--semantic--color--border-hover:var(--kb-token--primitive--color--transparent);--kb-token--semantic--color--link:var(--kb-token--primitive--color--brand--primary);--kb-token--semantic--color--button-bg:var(--kb-token--primitive--color--brand--button);--kb-token--semantic--color--button-text:var(--kb-token--primitive--color--neutral--0);--kb-token--semantic--color--button-bg-hover:var(--kb-token--primitive--color--brand--button-hover);--kb-token--semantic--color--button-text-hover:var(--kb-token--primitive--color--neutral--0);--kb-token--semantic--color--button-border:var(--kb-token--primitive--color--transparent);--kb-token--semantic--color--icon:currentColor;--kb-token--semantic--color--icon-hover:var(--kb-token--primitive--color--brand--primary);--kb-token--semantic--color--rowlayout-bg:var(--kb-token--primitive--color--transparent);--kb-token--semantic--color--column-bg:var(--kb-token--primitive--color--transparent);--kb-token--semantic--color--column-bg-hover:var(--kb-token--primitive--color--transparent);--kb-token--semantic--color--image-bg:var(--kb-token--primitive--color--transparent);--kb-token--semantic--color--heading-bg:var(--kb-token--primitive--color--transparent);--kb-token--semantic--spacing--inline:var(--kb-token--primitive--dimension--spacing--md);--kb-token--semantic--spacing--block:var(--kb-token--primitive--dimension--spacing--lg);--kb-token--semantic--spacing--section:var(--kb-token--primitive--dimension--spacing--xl);--kb-token--semantic--spacing--media-padding:0;--kb-token--semantic--spacing--heading-padding:0;--kb-token--semantic--radius--control:3px;--kb-token--semantic--radius--media:0;--kb-token--semantic--radius--rowlayout:0;--kb-token--semantic--radius--column:0;--kb-token--semantic--radius--column-hover:0;--kb-token--semantic--radius--heading:0;--kb-token--semantic--border-width--default:var(--kb-token--primitive--dimension--border-width--sm);--kb-token--semantic--border-width--default-hover:0;--kb-token--semantic--border-width--media:0;--kb-token--semantic--border-width--button:0;--kb-token--semantic--border-style--default:none;--kb-token--semantic--border-style--default-hover:solid;--kb-token--semantic--border-style--button:solid;--kb-token--semantic--icon-size--default:var(--kb-token--primitive--dimension--icon-size--md);--kb-token--semantic--icon-size--icon:50px;--kb-token--semantic--font-size--control:1.125rem;--kb-token--semantic--font-size--heading:2rem;--kb-token--semantic--font-weight--control:normal;--kb-token--semantic--font-weight--heading:400;--kb-token--semantic--line-height--control:normal;--kb-token--semantic--line-height--heading:1.125;--kb-token--semantic--font-style--control:normal;--kb-token--semantic--text-transform--control:none;--kb-token--semantic--text-transform--heading:none;--kb-token--semantic--letter-spacing--control:0;--kb-token--semantic--letter-spacing--heading:0;--kb-token--semantic--shadow--card:0px 2px 8px 0px var(--kb-token--primitive--color--neutral--900);--kb-token--semantic--shadow--media:0px 0px 0px 0px var(--kb-token--primitive--color--transparent);--kb-token--semantic--shadow--button:0px 0px 0px 0px var(--kb-token--primitive--color--transparent);--kb-token--semantic--shadow--button-hover:0px 0px 0px 0px var(--kb-token--primitive--color--transparent);--global-kb-spacing-xxs:var(--kb-token--primitive--dimension--spacing--xxs,0.5rem);--global-kb-spacing-xs:var(--kb-token--primitive--dimension--spacing--xs,1rem);--global-kb-spacing-sm:var(--kb-token--primitive--dimension--spacing--sm,1.5rem);--global-kb-spacing-md:var(--kb-token--primitive--dimension--spacing--md,2rem);--global-kb-spacing-lg:var(--kb-token--primitive--dimension--spacing--lg,3rem);--global-kb-spacing-xl:var(--kb-token--primitive--dimension--spacing--xl,4rem);--global-kb-spacing-xxl:var(--kb-token--primitive--dimension--spacing--xxl,5rem);--global-kb-spacing-3xl:var(--kb-token--primitive--dimension--spacing--3xl,6.5rem);--global-kb-spacing-4xl:var(--kb-token--primitive--dimension--spacing--4xl,8rem);--global-kb-spacing-5xl:var(--kb-token--primitive--dimension--spacing--5xl,10rem);--global-kb-gap-none:var(--kb-token--primitive--dimension--gap--none,0rem);--global-kb-gap-xs:var(--kb-token--primitive--dimension--gap--xs,0.5rem);--global-kb-gap-sm:var(--kb-token--primitive--dimension--gap--sm,1rem);--global-kb-gap-md:var(--kb-token--primitive--dimension--gap--md,2rem);--global-kb-gap-lg:var(--kb-token--primitive--dimension--gap--lg,4rem);--global-kb-font-size-sm:var(--kb-token--primitive--dimension--font-size--sm,clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem));--global-kb-font-size-md:var(--kb-token--primitive--dimension--font-size--md,clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem));--global-kb-font-size-lg:var(--kb-token--primitive--dimension--font-size--lg,clamp(1.75rem, 1.576rem + 0.543vw, 2rem));--global-kb-font-size-xl:var(--kb-token--primitive--dimension--font-size--xl,clamp(2.25rem, 1.728rem + 1.63vw, 3rem));--global-kb-font-size-xxl:var(--kb-token--primitive--dimension--font-size--xxl,clamp(2.5rem, 1.456rem + 3.26vw, 4rem));--global-kb-font-size-xxxl:var(--kb-token--primitive--dimension--font-size--xxxl,clamp(2.75rem, 0.489rem + 7.065vw, 6rem));}
+:root,:root:where(.kb-tokens){--kb-token--preset--kadence-singlebtn--default--button-bg:var(--kb-token--semantic--color--button-bg);--kb-token--preset--kadence-singlebtn--default--button-text:var(--kb-token--semantic--color--button-text);--kb-token--preset--kadence-singlebtn--default--button-bg-hover:var(--kb-token--semantic--color--button-bg-hover);--kb-token--preset--kadence-singlebtn--default--button-text-hover:var(--kb-token--semantic--color--button-text-hover);--kb-token--preset--kadence-singlebtn--default--button-radius:var(--kb-token--semantic--radius--control);--kb-token--preset--kadence-singlebtn--default--button-border-width:var(--kb-token--semantic--border-width--button);--kb-token--preset--kadence-singlebtn--default--button-border-style:var(--kb-token--semantic--border-style--button);--kb-token--preset--kadence-singlebtn--default--button-border-color:var(--kb-token--semantic--color--button-border);--kb-token--preset--kadence-singlebtn--default--button-padding--top:0.4em;--kb-token--preset--kadence-singlebtn--default--button-padding--right:1em;--kb-token--preset--kadence-singlebtn--default--button-padding--bottom:0.4em;--kb-token--preset--kadence-singlebtn--default--button-padding--left:1em;--kb-token--preset--kadence-singlebtn--default--button-padding:var(--kb-token--preset--kadence-singlebtn--default--button-padding--top) var(--kb-token--preset--kadence-singlebtn--default--button-padding--right) var(--kb-token--preset--kadence-singlebtn--default--button-padding--bottom) var(--kb-token--preset--kadence-singlebtn--default--button-padding--left);--kb-token--preset--kadence-singlebtn--default--button-margin--top:0;--kb-token--preset--kadence-singlebtn--default--button-margin--right:0;--kb-token--preset--kadence-singlebtn--default--button-margin--bottom:0;--kb-token--preset--kadence-singlebtn--default--button-margin--left:0;--kb-token--preset--kadence-singlebtn--default--button-margin:var(--kb-token--preset--kadence-singlebtn--default--button-margin--top) var(--kb-token--preset--kadence-singlebtn--default--button-margin--right) var(--kb-token--preset--kadence-singlebtn--default--button-margin--bottom) var(--kb-token--preset--kadence-singlebtn--default--button-margin--left);--kb-token--preset--kadence-image--default--background:var(--kb-token--semantic--color--image-bg);--kb-token--preset--kadence-image--default--border:var(--kb-token--semantic--color--border);--kb-token--preset--kadence-image--default--borderWidth:var(--kb-token--semantic--border-width--media);--kb-token--preset--kadence-image--default--borderRadius:var(--kb-token--semantic--radius--media);--kb-token--preset--kadence-image--default--shadow:var(--kb-token--semantic--shadow--media);--kb-token--preset--kadence-image--default--padding:var(--kb-token--semantic--spacing--media-padding);--kb-token--preset--kadence-rowlayout--default--background:var(--kb-token--semantic--color--rowlayout-bg);--kb-token--preset--kadence-rowlayout--default--borderRadius:var(--kb-token--semantic--radius--rowlayout);--kb-token--preset--kadence-column--default--background:var(--kb-token--semantic--color--column-bg);--kb-token--preset--kadence-column--default--borderRadius:var(--kb-token--semantic--radius--column);--kb-token--preset--kadence-single-icon--default--color:var(--kb-token--semantic--color--icon);--kb-token--preset--kadence-single-icon--default--size:var(--kb-token--semantic--icon-size--icon);--kb-token--preset--kadence-advancedheading--default--background:var(--kb-token--semantic--color--heading-bg);--kb-token--preset--kadence-advancedheading--default--padding:var(--kb-token--semantic--spacing--heading-padding);--kb-token--preset--kadence-advancedheading--default--borderColor:var(--kb-token--semantic--color--border);--kb-token--preset--kadence-advancedheading--default--borderWidth:var(--kb-token--semantic--border-width--default);--kb-token--preset--kadence-advancedheading--default--borderRadius:var(--kb-token--semantic--radius--heading);--kb-token--preset--kadence-advancedheading--default--borderStyle:var(--kb-token--semantic--border-style--default);}.wp-block-kadence-singlebtn.kb-preset--default{--kb-btn-radius:var(--kb-token--preset--kadence-singlebtn--default--button-radius);--kb-btn-border-width:var(--kb-token--preset--kadence-singlebtn--default--button-border-width);--kb-btn-border-style:var(--kb-token--preset--kadence-singlebtn--default--button-border-style);--kb-btn-border-color:var(--kb-token--preset--kadence-singlebtn--default--button-border-color);--kb-btn-padding:var(--kb-token--preset--kadence-singlebtn--default--button-padding);--kb-btn-margin:var(--kb-token--preset--kadence-singlebtn--default--button-margin);}.wp-block-kadence-singlebtn.kb-preset--outline{--global-palette-btn-bg:unset;--global-palette-btn:unset;--global-palette-btn-bg-hover:unset;--global-palette-btn-hover:unset;--kb-btn-radius:unset;--kb-btn-padding:unset;--kb-btn-margin:unset;--kb-btn-border-width:unset;--kb-btn-border-style:unset;--kb-btn-border-color:unset;--kb-btn-shadow:unset;--kb-btn-shadow-hover:unset;}.wp-block-kadence-singlebtn.kb-preset--theme-base{--global-palette-btn-bg:unset;--global-palette-btn:unset;--global-palette-btn-bg-hover:unset;--global-palette-btn-hover:unset;--kb-btn-radius:unset;--kb-btn-padding:unset;--kb-btn-margin:unset;--kb-btn-border-width:unset;--kb-btn-border-style:unset;--kb-btn-border-color:unset;--kb-btn-shadow:unset;--kb-btn-shadow-hover:unset;}.wp-block-kadence-image.kb-preset--default{--kb-img-bg:var(--kb-token--preset--kadence-image--default--background);--kb-img-border-color:var(--kb-token--preset--kadence-image--default--border);--kb-img-border-width:var(--kb-token--preset--kadence-image--default--borderWidth);--kb-img-radius:var(--kb-token--preset--kadence-image--default--borderRadius);--kb-img-shadow:var(--kb-token--preset--kadence-image--default--shadow);--kb-img-padding:var(--kb-token--preset--kadence-image--default--padding);}.wp-block-kadence-rowlayout.kb-preset--default{--kb-row-bg:var(--kb-token--preset--kadence-rowlayout--default--background);--kb-row-radius:var(--kb-token--preset--kadence-rowlayout--default--borderRadius);}.wp-block-kadence-column.kb-preset--default{--kb-col-bg:var(--kb-token--preset--kadence-column--default--background);--kb-col-radius:var(--kb-token--preset--kadence-column--default--borderRadius);}.wp-block-kadence-single-icon.kb-preset--default{--kb-icon-color:var(--kb-token--preset--kadence-single-icon--default--color);--kb-icon-size:var(--kb-token--preset--kadence-single-icon--default--size);}.wp-block-kadence-advancedheading.kb-preset--default{--kb-heading-bg:var(--kb-token--preset--kadence-advancedheading--default--background);--kb-heading-padding:var(--kb-token--preset--kadence-advancedheading--default--padding);--kb-heading-border-color:var(--kb-token--preset--kadence-advancedheading--default--borderColor);--kb-heading-border-width:var(--kb-token--preset--kadence-advancedheading--default--borderWidth);--kb-heading-radius:var(--kb-token--preset--kadence-advancedheading--default--borderRadius);--kb-heading-border-style:var(--kb-token--preset--kadence-advancedheading--default--borderStyle);}.wp-block-kadence-singlebtn{--kb-btn-radius:var(--kb-token--preset--kadence-singlebtn--default--button-radius);--kb-btn-border-width:var(--kb-token--preset--kadence-singlebtn--default--button-border-width);--kb-btn-border-style:var(--kb-token--preset--kadence-singlebtn--default--button-border-style);--kb-btn-border-color:var(--kb-token--preset--kadence-singlebtn--default--button-border-color);--kb-btn-padding:var(--kb-token--preset--kadence-singlebtn--default--button-padding);--kb-btn-margin:var(--kb-token--preset--kadence-singlebtn--default--button-margin);}.wp-block-kadence-image{--kb-img-bg:var(--kb-token--preset--kadence-image--default--background);--kb-img-border-color:var(--kb-token--preset--kadence-image--default--border);--kb-img-border-width:var(--kb-token--preset--kadence-image--default--borderWidth);--kb-img-radius:var(--kb-token--preset--kadence-image--default--borderRadius);--kb-img-shadow:var(--kb-token--preset--kadence-image--default--shadow);--kb-img-padding:var(--kb-token--preset--kadence-image--default--padding);}.wp-block-kadence-rowlayout{--kb-row-bg:var(--kb-token--preset--kadence-rowlayout--default--background);--kb-row-radius:var(--kb-token--preset--kadence-rowlayout--default--borderRadius);}.wp-block-kadence-column{--kb-col-bg:var(--kb-token--preset--kadence-column--default--background);--kb-col-radius:var(--kb-token--preset--kadence-column--default--borderRadius);}.wp-block-kadence-single-icon{--kb-icon-color:var(--kb-token--preset--kadence-single-icon--default--color);--kb-icon-size:var(--kb-token--preset--kadence-single-icon--default--size);}.wp-block-kadence-advancedheading{--kb-heading-bg:var(--kb-token--preset--kadence-advancedheading--default--background);--kb-heading-padding:var(--kb-token--preset--kadence-advancedheading--default--padding);--kb-heading-border-color:var(--kb-token--preset--kadence-advancedheading--default--borderColor);--kb-heading-border-width:var(--kb-token--preset--kadence-advancedheading--default--borderWidth);--kb-heading-radius:var(--kb-token--preset--kadence-advancedheading--default--borderRadius);--kb-heading-border-style:var(--kb-token--preset--kadence-advancedheading--default--borderStyle);}
+[data-kb-palette]{--kb-token--preset--kadence-singlebtn--default--button-bg:var(--kb-token--semantic--color--button-bg);--kb-token--preset--kadence-singlebtn--default--button-text:var(--kb-token--semantic--color--button-text);--kb-token--preset--kadence-singlebtn--default--button-bg-hover:var(--kb-token--semantic--color--button-bg-hover);--kb-token--preset--kadence-singlebtn--default--button-text-hover:var(--kb-token--semantic--color--button-text-hover);--kb-token--preset--kadence-singlebtn--default--button-radius:var(--kb-token--semantic--radius--control);--kb-token--preset--kadence-singlebtn--default--button-border-width:var(--kb-token--semantic--border-width--button);--kb-token--preset--kadence-singlebtn--default--button-border-style:var(--kb-token--semantic--border-style--button);--kb-token--preset--kadence-singlebtn--default--button-border-color:var(--kb-token--semantic--color--button-border);--kb-token--preset--kadence-singlebtn--default--button-padding--top:0.4em;--kb-token--preset--kadence-singlebtn--default--button-padding--right:1em;--kb-token--preset--kadence-singlebtn--default--button-padding--bottom:0.4em;--kb-token--preset--kadence-singlebtn--default--button-padding--left:1em;--kb-token--preset--kadence-singlebtn--default--button-padding:var(--kb-token--preset--kadence-singlebtn--default--button-padding--top) var(--kb-token--preset--kadence-singlebtn--default--button-padding--right) var(--kb-token--preset--kadence-singlebtn--default--button-padding--bottom) var(--kb-token--preset--kadence-singlebtn--default--button-padding--left);--kb-token--preset--kadence-singlebtn--default--button-margin--top:0;--kb-token--preset--kadence-singlebtn--default--button-margin--right:0;--kb-token--preset--kadence-singlebtn--default--button-margin--bottom:0;--kb-token--preset--kadence-singlebtn--default--button-margin--left:0;--kb-token--preset--kadence-singlebtn--default--button-margin:var(--kb-token--preset--kadence-singlebtn--default--button-margin--top) var(--kb-token--preset--kadence-singlebtn--default--button-margin--right) var(--kb-token--preset--kadence-singlebtn--default--button-margin--bottom) var(--kb-token--preset--kadence-singlebtn--default--button-margin--left);--kb-token--preset--kadence-image--default--background:var(--kb-token--semantic--color--image-bg);--kb-token--preset--kadence-image--default--border:var(--kb-token--semantic--color--border);--kb-token--preset--kadence-image--default--borderWidth:var(--kb-token--semantic--border-width--media);--kb-token--preset--kadence-image--default--borderRadius:var(--kb-token--semantic--radius--media);--kb-token--preset--kadence-image--default--shadow:var(--kb-token--semantic--shadow--media);--kb-token--preset--kadence-image--default--padding:var(--kb-token--semantic--spacing--media-padding);--kb-token--preset--kadence-rowlayout--default--background:var(--kb-token--semantic--color--rowlayout-bg);--kb-token--preset--kadence-rowlayout--default--borderRadius:var(--kb-token--semantic--radius--rowlayout);--kb-token--preset--kadence-column--default--background:var(--kb-token--semantic--color--column-bg);--kb-token--preset--kadence-column--default--borderRadius:var(--kb-token--semantic--radius--column);--kb-token--preset--kadence-single-icon--default--color:var(--kb-token--semantic--color--icon);--kb-token--preset--kadence-single-icon--default--size:var(--kb-token--semantic--icon-size--icon);--kb-token--preset--kadence-advancedheading--default--background:var(--kb-token--semantic--color--heading-bg);--kb-token--preset--kadence-advancedheading--default--padding:var(--kb-token--semantic--spacing--heading-padding);--kb-token--preset--kadence-advancedheading--default--borderColor:var(--kb-token--semantic--color--border);--kb-token--preset--kadence-advancedheading--default--borderWidth:var(--kb-token--semantic--border-width--default);--kb-token--preset--kadence-advancedheading--default--borderRadius:var(--kb-token--semantic--radius--heading);--kb-token--preset--kadence-advancedheading--default--borderStyle:var(--kb-token--semantic--border-style--default);}:root [class*="kadence-"].has-palette-1-color{color:var(--global-palette1) !important;}:root [class*="kadence-"].has-palette-1-background-color{background-color:var(--global-palette1) !important;}:root [class*="kadence-"].has-theme-palette-1-color{color:var(--global-palette1) !important;}:root [class*="kadence-"].has-theme-palette-1-background-color{background-color:var(--global-palette1) !important;}:root [class*="kadence-"].has-palette-2-color{color:var(--global-palette2) !important;}:root [class*="kadence-"].has-palette-2-background-color{background-color:var(--global-palette2) !important;}:root [class*="kadence-"].has-theme-palette-2-color{color:var(--global-palette2) !important;}:root [class*="kadence-"].has-theme-palette-2-background-color{background-color:var(--global-palette2) !important;}:root [class*="kadence-"].has-palette-3-color{color:var(--global-palette3) !important;}:root [class*="kadence-"].has-palette-3-background-color{background-color:var(--global-palette3) !important;}:root [class*="kadence-"].has-theme-palette-3-color{color:var(--global-palette3) !important;}:root [class*="kadence-"].has-theme-palette-3-background-color{background-color:var(--global-palette3) !important;}:root [class*="kadence-"].has-palette-4-color{color:var(--global-palette4) !important;}:root [class*="kadence-"].has-palette-4-background-color{background-color:var(--global-palette4) !important;}:root [class*="kadence-"].has-theme-palette-4-color{color:var(--global-palette4) !important;}:root [class*="kadence-"].has-theme-palette-4-background-color{background-color:var(--global-palette4) !important;}:root [class*="kadence-"].has-palette-5-color{color:var(--global-palette5) !important;}:root [class*="kadence-"].has-palette-5-background-color{background-color:var(--global-palette5) !important;}:root [class*="kadence-"].has-theme-palette-5-color{color:var(--global-palette5) !important;}:root [class*="kadence-"].has-theme-palette-5-background-color{background-color:var(--global-palette5) !important;}:root [class*="kadence-"].has-palette-6-color{color:var(--global-palette6) !important;}:root [class*="kadence-"].has-palette-6-background-color{background-color:var(--global-palette6) !important;}:root [class*="kadence-"].has-theme-palette-6-color{color:var(--global-palette6) !important;}:root [class*="kadence-"].has-theme-palette-6-background-color{background-color:var(--global-palette6) !important;}:root [class*="kadence-"].has-palette-7-color{color:var(--global-palette7) !important;}:root [class*="kadence-"].has-palette-7-background-color{background-color:var(--global-palette7) !important;}:root [class*="kadence-"].has-theme-palette-7-color{color:var(--global-palette7) !important;}:root [class*="kadence-"].has-theme-palette-7-background-color{background-color:var(--global-palette7) !important;}:root [class*="kadence-"].has-palette-8-color{color:var(--global-palette8) !important;}:root [class*="kadence-"].has-palette-8-background-color{background-color:var(--global-palette8) !important;}:root [class*="kadence-"].has-theme-palette-8-color{color:var(--global-palette8) !important;}:root [class*="kadence-"].has-theme-palette-8-background-color{background-color:var(--global-palette8) !important;}:root [class*="kadence-"].has-palette-9-color{color:var(--global-palette9) !important;}:root [class*="kadence-"].has-palette-9-background-color{background-color:var(--global-palette9) !important;}:root [class*="kadence-"].has-theme-palette-9-color{color:var(--global-palette9) !important;}:root [class*="kadence-"].has-theme-palette-9-background-color{background-color:var(--global-palette9) !important;}
+.wp-block-kadence-image img{background-color:var(--kb-img-bg,var(--kb-token--semantic--color--image-bg,transparent));border-color:var(--kb-img-border-color,var(--kb-token--semantic--color--border,#E2E8F0));border-width:var(--kb-img-border-width,var(--kb-token--semantic--border-width--media,0));border-radius:var(--kb-img-radius,var(--kb-token--semantic--radius--media,0));box-shadow:var(--kb-img-shadow,var(--kb-token--semantic--shadow--media,0px 0px 0px 0px transparent));}.wp-block-kadence-image *.kb-img{padding:var(--kb-img-padding,var(--kb-token--semantic--spacing--media-padding,0));}.wp-block-kadence-rowlayout{background-color:var(--kb-row-bg,var(--kb-token--semantic--color--rowlayout-bg,transparent));border-radius:var(--kb-row-radius,var(--kb-token--semantic--radius--rowlayout,0));}.wp-block-kadence-column> .kt-inside-inner-col{background-color:var(--kb-col-bg,var(--kb-token--semantic--color--column-bg,transparent));border-radius:var(--kb-col-radius,var(--kb-token--semantic--radius--column,0));}.wp-block-kadence-single-icon *.kb-svg-icon-wrap{color:var(--kb-icon-color,var(--kb-token--semantic--color--icon,currentColor));font-size:var(--kb-icon-size,var(--kb-token--semantic--icon-size--icon,50px));}.wp-block-kadence-advancedheading{background-color:var(--kb-heading-bg,var(--kb-token--semantic--color--heading-bg,transparent));padding:var(--kb-heading-padding,var(--kb-token--semantic--spacing--heading-padding,0));border-color:var(--kb-heading-border-color,var(--kb-token--semantic--color--border,#E2E8F0));border-width:var(--kb-heading-border-width,var(--kb-token--semantic--border-width--default,1px));border-radius:var(--kb-heading-radius,var(--kb-token--semantic--radius--heading,0));border-style:var(--kb-heading-border-style,var(--kb-token--semantic--border-style--default,none));}
+/*# sourceURL=kadence-blocks-global-variables-inline-css */
+</style>
+<link rel='stylesheet' id='flatsome-main-css' href='https://www.eiffel.com/wp-content/themes/flatsome/assets/css/flatsome.css?ver=3.20.9' media='all' />
+<style id="flatsome-main-inline-css">
+@font-face {
+				font-family: "fl-icons";
+				font-display: block;
+				src: url(https://www.eiffel.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.eot?v=3.20.9);
+				src:
+					url(https://www.eiffel.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.eot#iefix?v=3.20.9) format("embedded-opentype"),
+					url(https://www.eiffel.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.woff2?v=3.20.9) format("woff2"),
+					url(https://www.eiffel.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.ttf?v=3.20.9) format("truetype"),
+					url(https://www.eiffel.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.woff?v=3.20.9) format("woff"),
+					url(https://www.eiffel.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.svg?v=3.20.9#fl-icons) format("svg");
+			}
+/*# sourceURL=flatsome-main-inline-css */
+</style>
+<link rel='stylesheet' id='flatsome-style-css' href='https://www.eiffel.com/wp-content/themes/flatsome-child/style.css?ver=3.0' media='all' />
+<link rel='stylesheet' id='wp-block-heading-css' href='https://www.eiffel.com/wp-includes/blocks/heading/style.min.css?ver=7.1.3' media='all' />
+<link rel='stylesheet' id='wp-block-paragraph-css' href='https://www.eiffel.com/wp-includes/blocks/paragraph/style.min.css?ver=7.1.3' media='all' />
+<link rel='stylesheet' id='wp-block-table-css' href='https://www.eiffel.com/wp-includes/blocks/table/style.min.css?ver=7.1.3' media='all' />
+<link rel='stylesheet' id='wp-block-preformatted-css' href='https://www.eiffel.com/wp-includes/blocks/preformatted/style.min.css?ver=7.1.3' media='all' />
+<style id="kadence_blocks_palette_css">:root .has-palette1-color{color:#3182CE}:root .has-palette1-background-color{background-color:#3182CE}:root .has-palette2-color{color:#2B6CB0}:root .has-palette2-background-color{background-color:#2B6CB0}:root .has-palette3-color{color:#1A202C}:root .has-palette3-background-color{background-color:#1A202C}:root .has-palette4-color{color:#2D3748}:root .has-palette4-background-color{background-color:#2D3748}:root .has-palette5-color{color:#4A5568}:root .has-palette5-background-color{background-color:#4A5568}:root .has-palette6-color{color:#718096}:root .has-palette6-background-color{background-color:#718096}:root .has-palette7-color{color:#EDF2F7}:root .has-palette7-background-color{background-color:#EDF2F7}:root .has-palette8-color{color:#F7FAFC}:root .has-palette8-background-color{background-color:#F7FAFC}:root .has-palette9-color{color:#ffffff}:root .has-palette9-background-color{background-color:#ffffff}</style><!--n2css--><!--n2js--><script id="jquery-core-js" src="https://www.eiffel.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://www.eiffel.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<link rel="https://api.w.org/" href="https://www.eiffel.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.eiffel.com/wp-json/wp/v2/pages/5066" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.eiffel.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.3" />
+<link rel='shortlink' href='https://www.eiffel.com/?p=5066' />
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+div.survey_row th.ps_label_table {
+	font-size: x-small !important;
+}
+</style>
+<!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Add your CSS code here.
+
+For example:
+.example {
+    color: red;
+}
+
+For brushing up on your CSS knowledge, check out http://www.w3schools.com/css/css_syntax.asp
+
+End of comment */ 
+
+.tagcloud li { font-family:cambria; opacity: unset; color: #FFF; display: inline-block; margin: 0 5px 5px 0; padding: 0 6px; line-height: 30px; border-radius: 5px; } .tagcloud li:nth-child(9n){color: #4A4A4A;} .tagcloud li:nth-child(9n+1){color: #428BCA;} .tagcloud li:nth-child(9n+2){color: #5CB85C;} .tagcloud li:nth-child(9n+3){color: #D9534F;} .tagcloud li:nth-child(9n+4){color: #567E95;} .tagcloud li:nth-child(9n+5){color: #B433FF;} .tagcloud li:nth-child(9n+6){color: #00ABA9;} .tagcloud li:nth-child(9n+7){color: #B37333;} .tagcloud li:nth-child(9n+8){color: #FF6600;} 
+.tagcloud li  a{ font-family:cambria; opacity: unset; color: #FFF; display: inline-block; margin: 0 5px 5px 0; padding: 0 6px; line-height: 30px; border-radius: 5px; } .tagcloud li:nth-child(9n) a{color: #4A4A4A;} .tagcloud li:nth-child(9n+1) a{color: #428BCA;} .tagcloud li:nth-child(9n+2) a{color: #5CB85C;} .tagcloud li:nth-child(9n+3) a{color: #D9534F;} .tagcloud li:nth-child(9n+4) a{color: #567E95;} .tagcloud li:nth-child(9n+5) a{color: #044D80;} .tagcloud li:nth-child(9n+6) a{color: orange;} .tagcloud li:nth-child(9n+7) a{color: green;} .tagcloud li:nth-child(9n+8) a{color: #FF6600;} 
+</style>
+<!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Add your CSS code here.
+
+For example:
+.example {
+    color: red;
+}
+
+For brushing up on your CSS knowledge, check out http://www.w3schools.com/css/css_syntax.asp
+
+End of comment */ 
+
+.secondary, .checkout-button, .button.checkout, .button.alt {
+    background-color: #308AC8 !important;
+}
+.header-main {
+   height: 53px !important;
+    background: url(https://joshuaw25.sg-host.com/wp-content/uploads/outer_header_bg.jpg) repeat-x 0 0;
+}
+.nav-box>li.active>a, .nav-pills>li.active>a {
+    opacity: 1;
+    color: #fff !important;
+    background-color: #446084;
+}
+#main {
+    //float: left;
+    width: 100%;
+    background: #ECECEE url(https://joshuaw25.sg-host.com/wp-content/uploads/body_container_bg1-1.jpg) no-repeat center bottom;
+  background-size: 100%;}
+
+body, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, p {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    font-family: Arial, Tahoma, sans-serif !important;
+}
+
+.vc_row {
+    margin-left: unset !important;
+    margin-right: unset !important;
+}
+
+.vc_inner {
+    /* margin-left: unset !important; */
+    /* margin-right: unset !important; */
+    max-width: 1100px;
+    margin: 0px auto !important;
+}
+
+#content h1 {
+    color: #1982D1;
+    padding-bottom: 0.5em;
+    font-weight: bold;
+    line-height: 125%;
+}
+#content h2 {
+    color: #1982D1;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    font-weight: bold;
+}
+a {
+   /* color: #1982d1; */
+    text-decoration: none;
+}
+
+.large-3.col {
+    float: right;
+    width: 22%;
+    padding: 13px 0 0 0;
+    padding-left: 10px;
+    padding-right: 9px;
+    background: #e7e7e7;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U3ZTdlNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ5JSIgc3RvcC1jb2xvcj0iI2ZkZmRmZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlN2U3ZTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, #e7e7e7 0%, #fdfdfd 49%, #e7e7e7 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e7e7e7), color-stop(49%,#fdfdfd), color-stop(100%,#e7e7e7));
+    background: -webkit-linear-gradient(top, #e7e7e7 0%,#fdfdfd 49%,#e7e7e7 100%);
+    background: -o-linear-gradient(top, #e7e7e7 0%,#fdfdfd 49%,#e7e7e7 100%);
+    background: -ms-linear-gradient(top, #e7e7e7 0%,#fdfdfd 49%,#e7e7e7 100%);
+    background: linear-gradient(to bottom, #e7e7e7 0%,#fdfdfd 49%,#e7e7e7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#e7e7e7',GradientType=0 );
+    -webkit-box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.75);
+    box-shadow: 1px 1px 17px rgba(50, 50, 50, 0.75);
+}
+div.user-review {
+	border-top: dotted 1px #ccc;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	font-size: small;
+}
+div.user-review div.title {
+	text-align: right;
+	font-weight: bold;
+	font-size: larger;
+	padding-bottom: 5px;
+}
+div.user-review p.saying {
+	text-align: justify;
+	font-style: italic;
+	line-height: 130%;
+}
+div.user-review div.author {
+	text-align: right;
+	font-style: italic;
+	color: #1982D1;
+}</style>
+<!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Add your CSS code here.
+
+For example:
+.example {
+    color: red;
+}
+
+For brushing up on your CSS knowledge, check out http://www.w3schools.com/css/css_syntax.asp
+
+End of comment */ 
+
+.slogan_sec a.button {
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-left-radius: 4px;
+    min-width: 120px;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #008DBA), color-stop(1, #0081AB) );
+    background: -moz-linear-gradient( center top, #008DBA 5%, #0081AB 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008DBA', endColorstr='#0081AB');
+    background-color: #008DBA;
+    color: #ffffff;
+    text-indent: 0;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    border: 0;
+}
+
+
+#reliable {max-width: 1000px;
+    /* float: left; */
+margin: 0px auto;
+    text-align: center;
+}
+
+#reliable li {   list-style: none;
+    margin-left: 10px;
+    display: inline-block;
+	font-size: 24px;
+}
+
+.boxouter {
+    float: left;
+   /* max-width: 330px;
+    margin: 10px 30px 10px 0;*/
+    overflow: hidden;
+}
+
+.box {
+  /*  background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #F5F9FF), color-stop(1, #CAD2DB) );
+    background: -moz-linear-gradient( center top, #F5F9FF 5%, #CAD2DB 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5F9FF', endColorstr='#CAD2DB');
+    background-color: #F5F9FF;
+    border: 1px solid #ccc;
+    color: #000; */
+}
+
+div.box {
+    margin: 0;
+    padding: 10px;
+    /* max-width: 290px; */
+    height: 100%;
+    line-height: 22px;
+    border: solid 1px #ccc;
+    -webkit-border-top-left-radius: 8px;
+    -moz-border-radius-topleft: 8px;
+    border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -moz-border-radius-topright: 8px;
+    border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-left-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+}
+.box>h3 strong {
+    color: #E87026;
+    font-size: 105%;
+}
+
+.box>h3 {
+    padding-bottom: 10px;
+    margin: 5px 0 10px 0;
+    border-bottom: solid 1px #ccc;
+    text-indent: 0;
+    line-height: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.box>p {
+    text-indent: 0;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    margin: auto;
+    width: 85%;
+    min-height: 90px;
+}
+
+.box a {
+        /* background-color: #1C6FD1;
+    color: white;*/
+    font-weight: 600 !important;
+    line-height: .75em !important;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 2.75rem;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+    margin: 0;
+    padding: .9rem 1.25rem;
+    border-radius: 200px;
+    border: 2px solid #E87026;
+  color:#E87026;
+}
+.box.grey {
+   /* background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFFFFF), color-stop(1, #D1D1D1) );
+    background: -moz-linear-gradient( center top, #FFFFFF 5%, #D1D1D1 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#D1D1D1');
+   background-color: #FFFFFF; 
+    border: 1px solid #ccc;
+    color: #000;*/
+}
+.box.blue {
+   /*  background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0F6894), color-stop(1, #004161) );
+    background: -moz-linear-gradient( center top, #0F6894 5%, #004161 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0F6894', endColorstr='#004161'); 
+    background-color: #0F6894;
+    border: 1px solid #337fed;
+    color: #ffffff;  */
+}
+.box.blue h3{/* color: #fff;*/}
+.logo_sec ul li {
+    list-style: none;
+    /* float: left; */
+    max-width: 1000px;
+    padding: 26px;
+    display: inline-block;
+}
+.logo_sec{text-align: center;}
+
+.widget {
+     margin-bottom: unset !important; 
+}
+
+.slide-two-bg, 
+ #slide-two-bg {
+	 background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIj48c3R5bGU%2BLnN0MntkaXNwbGF5OmlubGluZX0uc3Q0e2ZpbGw6IzA0NGQ4MH08L3N0eWxlPjxnIGlkPSJMYXllcl8yIj48cGF0aCBjbGFzcz0ic3Q0IiBkPSJNODkuNCAxMDUuODhsMTcuNjEtNTUuODVoLTIuOTFsLTE3LjUyIDU1Ljg1ek00NjYuODUgMGwxLjA4IDM5OS45MkwyIDQwMCAxMjguMDkuMDggNDY2Ljg1IDB6TTY5Ljc5IDIxNy45OWgtMi45NEwyMy42OSAzNTUuNTNoMi43M2w0My4zNy0xMzcuNTR6Ii8%2BPC9nPjwvc3ZnPg%3D%3D) right/contain no-repeat,#002E47;
+    padding-bottom: 2rem;
+    padding-top: 2rem;} 
+
+
+@media only screen and (max-width: 767px){
+ .slide-two-bg, 
+  #slide-two-bg {
+       background: url(https://www.eiffel.com/wp-content/uploads/mobile-background.png);
+    background-size: cover;
+    background-position: right;
+}
+}
+
+rs-fullwidth-wrap {
+    position: relative;
+    width: 100%;
+    /* max-height: 300px !important; */
+    display: block;
+}
+
+.box{background-color: white;
+    margin-top: -6rem;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 12px rgba(0,46,71,0.1);
+}
+
+.box.blue a:hover{color:white;background-color:orange;text-decoration:none;border:2px solid #054EA5;}
+
+.box.blue a{background-color: #E87026;
+    color: white;
+    font-weight: 600 !important;
+    line-height: .75em !important;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 2.75rem;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+    margin: 0;
+    padding: .9rem 1.25rem;
+    border-radius: 200px;
+border: 2px solid #E87026;}
+
+.landing-boxes .box {
+	max-width: 26vw !important;
+}
+.landing-boxes .box .wp-block-buttons {
+	margin-bottom: 1rem !important;
+}
+.landing-boxes .box .wp-block-button {
+	margin-bottom: 1rem !important;
+}
+.landing-news a {
+	font-size: x-large;
+	color: #1982D1;
+	
+}
+
+@media (max-width: 768px) {
+    div.landing-boxes {
+        flex-direction: column;
+    }
+    div.landing-boxes > div.box {
+        max-width: 95% !important;
+    }
+}</style>
+<!-- end Simple Custom CSS and JS -->
+
+<!-- Recognyze Content Metadata -->
+<meta name="recognyze.ai" identifier="ad1e1b18b34d-4ae4bcf0-bd111a1d13d9-0577" price="1000" version="1.0" signed_at="2025-09-23T15:17:13Z" link="https://portal.recognyze.ai/api/v1/store/content/ad1e1b18b34d-4ae4bcf0-bd111a1d13d9-0577" />
+<!-- WP Social Preview -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://www.eiffel.com/values/design-by-contract/introduction/" />
+<meta property="og:title" content="Design by Contract Introduction" />
+<meta name="twitter:title" content="Design by Contract Introduction" />
+<meta property="og:description" content="Building bug-free O-O software: An Introduction to Design by Contract™ In our opinion the techniques outlined below are as important as the rest of object technology &#8212; as important as classes, objects, inheritance, polymorphism and dynamic binding, which they complement &#8212; although only a subset of the O-O literature has so far devoted its attention [...]" />
+<meta name="twitter:description" content="Building bug-free O-O software: An Introduction to Design by Contract™ In our opinion the techniques outlined below are as important as the rest of object technology &#8212; as important as classes, objects, inheritance, polymorphism and dynamic binding, which they complement &#8212; although only a subset of the O-O literature has so far devoted its attention [...]" />
+<!-- / WP Social Preview -->
+<style id="custom-css" type="text/css">:root {--primary-color: #446084;--fs-color-primary: #446084;--fs-color-secondary: #C05530;--fs-color-success: #627D47;--fs-color-alert: #b20000;--fs-color-base: #4a4a4a;--fs-experimental-link-color: #2953ac;--fs-experimental-link-color-hover: #1e73be;}.tooltipster-base {--tooltip-color: #fff;--tooltip-bg-color: #000;}.off-canvas-right .mfp-content, .off-canvas-left .mfp-content {--drawer-width: 300px;}.header-main{height: 53px}#logo img{max-height: 53px}#logo{width:169px;}.header-bottom{min-height: 10px}.header-top{min-height: 33px}.transparent .header-main{height: 265px}.transparent #logo img{max-height: 265px}.has-transparent + .page-title:first-of-type,.has-transparent + #main > .page-title,.has-transparent + #main > div > .page-title,.has-transparent + #main .page-header-wrapper:first-of-type .page-title{padding-top: 265px;}.header.show-on-scroll,.stuck .header-main{height:53px!important}.stuck #logo img{max-height: 53px!important}.search-form{ width: 100%;}.header-bg-color {background-color: rgba(255,255,255,0.9)}.header-bottom {background-color: #f1f1f1}.header-main .nav > li > a{line-height: 53px }.stuck .header-main .nav > li > a{line-height: 50px }@media (max-width: 549px) {.header-main{height: 53px}#logo img{max-height: 53px}}body{font-family: Lato, sans-serif;}body {font-weight: 400;font-style: normal;}.nav > li > a {font-family: Lato, sans-serif;}.mobile-sidebar-levels-2 .nav > li > ul > li > a {font-family: Lato, sans-serif;}.nav > li > a,.mobile-sidebar-levels-2 .nav > li > ul > li > a {font-weight: 700;font-style: normal;}h1,h2,h3,h4,h5,h6,.heading-font, .off-canvas-center .nav-sidebar.nav-vertical > li > a{font-family: Lato, sans-serif;}h1,h2,h3,h4,h5,h6,.heading-font,.banner h1,.banner h2 {font-weight: 700;font-style: normal;}.alt-font{font-family: "Dancing Script", sans-serif;}.alt-font {font-weight: 400!important;font-style: normal!important;}.header:not(.transparent) .header-nav-main.nav > li > a {color: #000000;}.footer-1{background-image: url('https://www.eiffel.com/wp-content/uploads/body_container_bg1-1.jpg');}.footer-1{background-color: #ecebf0}.nav-vertical-fly-out > li + li {border-top-width: 1px; border-top-style: solid;}/* Custom CSS */ul.wp-block-list li {margin-left: 2em !important;}/* Custom CSS Mobile */@media (max-width: 549px){ul.wp-block-list li {margin-left: 1em !important;}}.label-new.menu-item > a:after{content:"New";}.label-hot.menu-item > a:after{content:"Hot";}.label-sale.menu-item > a:after{content:"Sale";}.label-popular.menu-item > a:after{content:"Popular";}</style>		
+<!-- Responsive Select CSS 
+================================================================ -->
+<style type="text/css" id="responsive-select-css">
+.responsiveSelectContainer select.responsiveMenuSelect, select.responsiveMenuSelect{
+	display:none;
+}
+
+@media (max-width: 767px) {
+	.responsiveSelectContainer{
+		border:none !important;
+		background:none !important;
+		box-shadow:none !important;
+		height:auto !important;
+		max-height:none !important;
+		visibility:visible !important;
+	}
+	.responsiveSelectContainer ul, ul.responsiveSelectFullMenu, #megaMenu ul.megaMenu.responsiveSelectFullMenu{
+		display: none !important;
+	}
+	.responsiveSelectContainer select.responsiveMenuSelect, select.responsiveMenuSelect { 
+		display: inline-block; 
+		width:100%;
+	}
+}	
+</style>
+<!-- end Responsive Select CSS -->
+
+<!-- Responsive Select JS
+================================================================ -->
+<script type="text/javascript">
+jQuery(document).ready( function($){
+	$( '.responsiveMenuSelect' ).change(function() {
+		var loc = $(this).find( 'option:selected' ).val();
+		if( loc != '' && loc != '#' ) window.location = loc;
+	});
+	//$( '.responsiveMenuSelect' ).val('');
+});
+</script>
+<!-- end Responsive Select JS -->
+		
+<style id="kirki-inline-styles">/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.eiffel.com/wp-content/fonts/lato/S6u9w4BMUTPHh6UVSwaPGR_p.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://www.eiffel.com/wp-content/fonts/lato/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}/* vietnamese */
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.eiffel.com/wp-content/fonts/dancing-script/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7BMSo3Rep8ltA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.eiffel.com/wp-content/fonts/dancing-script/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7BMSo3ROp8ltA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://www.eiffel.com/wp-content/fonts/dancing-script/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7BMSo3Sup8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style><style id="wprc-frontend-inline-inline-css">
+
+				#comments .wprc-signature-wrapper,
+				.wp-block-comments .wprc-signature-wrapper,
+				.comments-area .wprc-signature-wrapper,
+				.comment-respond .wprc-signature-wrapper {
+					display: none !important;
+				}
+			
+/*# sourceURL=wprc-frontend-inline-inline-css */
+</style>
+
+</head>
+
+<body class="wp-singular page-template-default page page-id-5066 page-child parent-pageid-2470 wp-theme-flatsome wp-child-theme-flatsome-child full-width lightbox nav-dropdown-has-arrow nav-dropdown-has-shadow nav-dropdown-has-border page-template-right-sidebar page-template-right-sidebar-php">
+
+
+<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+<div id="wrapper">
+
+	
+	<header id="header" class="header header-full-width has-sticky sticky-jump">
+		<div class="header-wrapper">
+			<div id="masthead" class="header-main ">
+      <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
+
+          <!-- Logo -->
+          <div id="logo" class="flex-col logo">
+            
+<!-- Header logo -->
+<a href="https://www.eiffel.com/" title="Eiffel Software &#8211; The Home of EiffelStudio - Above and beyond" rel="home">
+		<img width="359" height="64" src="https://www.eiffel.com/wp-content/uploads/images/logos/eiffel/logo_eiffel_software.png" class="header_logo header-logo" alt="Eiffel Software &#8211; The Home of EiffelStudio"/><img  width="359" height="64" src="https://www.eiffel.com/wp-content/uploads/images/logos/eiffel/logo_eiffel_software.png" class="header-logo-dark" alt="Eiffel Software &#8211; The Home of EiffelStudio"/></a>
+          </div>
+
+          <!-- Mobile Left Elements -->
+          <div class="flex-col show-for-medium flex-left">
+            <ul class="mobile-nav nav nav-left ">
+              <li class="nav-icon has-icon">
+			<a href="#" class="is-small" data-open="#main-menu" data-pos="left" data-bg="main-menu-overlay" role="button" aria-label="Menu" aria-controls="main-menu" aria-expanded="false" aria-haspopup="dialog" data-flatsome-role-button>
+			<i class="icon-menu" aria-hidden="true"></i>					</a>
+	</li>
+            </ul>
+          </div>
+
+          <!-- Left Elements -->
+          <div class="flex-col hide-for-medium flex-left
+            flex-grow">
+            <ul class="header-nav header-nav-main nav nav-left  nav-box nav-size-medium nav-uppercase" >
+              <li id="menu-item-3363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3363 menu-item-design-default has-dropdown"><a href="https://www.eiffel.com/eiffelstudio/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">EiffelStudio<i class="icon-angle-down" aria-hidden="true"></i></a>
+<ul class="sub-menu nav-dropdown nav-dropdown-default">
+	<li id="menu-item-4303" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4303"><a href="https://www.eiffel.com/eiffelstudio/">Overview</a></li>
+	<li id="menu-item-3461" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3461"><a href="https://www.eiffel.com/eiffelstudio/screenshots/">Screenshots</a></li>
+	<li id="menu-item-3367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3367"><a href="https://www.eiffel.com/eiffelstudio/system-requirements/">System Requirements</a></li>
+	<li id="menu-item-5203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5203"><a href="https://www.eiffel.com/eiffelstudio/licensing/">Licensing</a></li>
+	<li id="menu-item-6123" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6123"><a href="/eiffelstudio/product/">Downloads</a></li>
+	<li id="menu-item-5996" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5996"><a href="https://www.eiffel.com/eiffelstudio/buy/">Purchase</a></li>
+	<li id="menu-item-5999" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5999"><a href="https://www.eiffel.com/eiffelstudio/purchase-enterprise/">Enterprise &#8230;</a></li>
+</ul>
+</li>
+<li id="menu-item-5113" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-has-children menu-item-5113 menu-item-design-default has-dropdown"><a href="https://www.eiffel.com/values/design-by-contract/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Values<i class="icon-angle-down" aria-hidden="true"></i></a>
+<ul class="sub-menu nav-dropdown nav-dropdown-default">
+	<li id="menu-item-4300" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-4300"><a href="https://www.eiffel.com/values/design-by-contract/">Design By Contract™</a></li>
+	<li id="menu-item-3374" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3374"><a href="https://www.eiffel.com/values/seamless-development/">Seamless Development</a></li>
+	<li id="menu-item-3463" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3463"><a href="https://www.eiffel.com/values/automatic-testing/">Automatic Testing</a></li>
+	<li id="menu-item-3464" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3464"><a href="https://www.eiffel.com/values/void-safety/">Void Safety</a></li>
+	<li id="menu-item-3373" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3373"><a href="https://www.eiffel.com/values/parallel-programming/">Parallel Programming</a></li>
+	<li id="menu-item-5222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5222"><a href="https://www.eiffel.com/values/model-driven-development/">Model-driven Development</a></li>
+</ul>
+</li>
+<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3375 menu-item-design-default has-dropdown"><a href="https://www.eiffel.com/services/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Services<i class="icon-angle-down" aria-hidden="true"></i></a>
+<ul class="sub-menu nav-dropdown nav-dropdown-default">
+	<li id="menu-item-4299" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4299"><a href="https://www.eiffel.com/services/">Overview</a></li>
+	<li id="menu-item-3465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3465"><a href="https://www.eiffel.com/services/consulting/">Consulting</a></li>
+	<li id="menu-item-5460" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5460"><a href="https://www.eiffel.com/services/custom-development/">Custom Development</a></li>
+	<li id="menu-item-5054" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5054"><a href="https://www.eiffel.com/services/training/">Training</a></li>
+	<li id="menu-item-4956" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4956"><a href="https://www.eiffel.com/services/support/">Support</a></li>
+</ul>
+</li>
+<li id="menu-item-3740" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3740 menu-item-design-default has-dropdown"><a href="https://www.eiffel.com/resources/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Resources<i class="icon-angle-down" aria-hidden="true"></i></a>
+<ul class="sub-menu nav-dropdown nav-dropdown-default">
+	<li id="menu-item-3663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3663"><a target="_blank" href="https://www.eiffel.org/documentation">Documentation</a></li>
+	<li id="menu-item-5424" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5424"><a target="_blank" href="https://www.eiffel.org/resources/libraries">Libraries</a></li>
+	<li id="menu-item-5206" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5206"><a target="_blank" href="http://www.eiffel.org">Eiffel Community</a></li>
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3496"><a href="https://www.eiffel.com/resources/fan-zone/">Fan Zone</a></li>
+	<li id="menu-item-4110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4110"><a href="https://www.eiffel.com/resources/presentations/">Presentations</a></li>
+	<li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3494"><a href="https://www.eiffel.com/resources/faqs/">FAQS</a></li>
+</ul>
+</li>
+<li id="menu-item-4306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4306 menu-item-design-default has-dropdown"><a href="https://www.eiffel.com/company/about-us/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Company<i class="icon-angle-down" aria-hidden="true"></i></a>
+<ul class="sub-menu nav-dropdown nav-dropdown-default">
+	<li id="menu-item-3497" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3497"><a href="https://www.eiffel.com/company/about-us/">About Us</a></li>
+	<li id="menu-item-3504" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3504"><a href="https://www.eiffel.com/company/leadership/">Leadership</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3498"><a href="https://www.eiffel.com/company/customers/">Customers</a></li>
+	<li id="menu-item-4913" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4913"><a href="https://www.eiffel.com/posts/news/">News &amp; Events</a></li>
+	<li id="menu-item-3500" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3500"><a href="https://www.eiffel.com/company/careers/">Careers</a></li>
+	<li id="menu-item-4009" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4009"><a href="https://www.eiffel.com/company/contact/">Contact</a></li>
+</ul>
+</li>
+            </ul>
+          </div>
+
+          <!-- Right Elements -->
+          <div class="flex-col hide-for-medium flex-right">
+            <ul class="header-nav header-nav-main nav nav-right  nav-box nav-size-medium nav-uppercase">
+              <li class="header-search-form search-form html relative has-icon">
+	<div class="header-search-form-wrapper">
+		<div class="searchform-wrapper ux-search-box relative is-normal"><form method="get" class="searchform" action="https://www.eiffel.com/" role="search">
+		<div class="flex-row relative">
+			<div class="flex-col flex-grow">
+	   	   <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Search&hellip;" />
+			</div>
+			<div class="flex-col">
+				<button type="submit" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
+					<i class="icon-search" aria-hidden="true"></i>				</button>
+			</div>
+		</div>
+    <div class="live-search-results text-left z-top"></div>
+</form>
+</div>	</div>
+</li>
+            </ul>
+          </div>
+
+          <!-- Mobile Right Elements -->
+          <div class="flex-col show-for-medium flex-right">
+            <ul class="mobile-nav nav nav-right ">
+              <li class="header-search header-search-dropdown has-icon has-dropdown menu-item-has-children">
+		<a href="#" aria-label="Search" aria-haspopup="true" aria-expanded="false" aria-controls="ux-search-dropdown" class="nav-top-link is-small"><i class="icon-search" aria-hidden="true"></i></a>
+		<ul id="ux-search-dropdown" class="nav-dropdown nav-dropdown-default">
+	 	<li class="header-search-form search-form html relative has-icon">
+	<div class="header-search-form-wrapper">
+		<div class="searchform-wrapper ux-search-box relative is-normal"><form method="get" class="searchform" action="https://www.eiffel.com/" role="search">
+		<div class="flex-row relative">
+			<div class="flex-col flex-grow">
+	   	   <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Search&hellip;" />
+			</div>
+			<div class="flex-col">
+				<button type="submit" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
+					<i class="icon-search" aria-hidden="true"></i>				</button>
+			</div>
+		</div>
+    <div class="live-search-results text-left z-top"></div>
+</form>
+</div>	</div>
+</li>
+	</ul>
+</li>
+            </ul>
+          </div>
+
+      </div>
+
+            <div class="container"><div class="top-divider full-width"></div></div>
+      </div>
+
+<div class="header-bg-container fill"><div class="header-bg-image fill"></div><div class="header-bg-color fill"></div></div>		</div>
+	</header>
+
+	
+	<main id="main" class="">
+
+
+<div class="page-wrapper page-right-sidebar">
+<div class="row">
+
+<div id="content" class="large-9 left col col-divided" role="main">
+	<div class="page-inner">
+				
+			
+<h1 class="wp-block-heading">Building bug-free O-O software: An Introduction to Design by Contract™</h1>
+
+
+
+<p class="wp-block-paragraph">
+In our opinion the techniques outlined below are as important as the rest of object technology &#8212; as important as classes, objects, inheritance, polymorphism and dynamic binding, which they complement &#8212; although only a subset of the O-O literature has so far devoted its attention to it.
+
+To go beyond the theoretical understanding provided by this paper and experience the practical power of its ideas, take a look at the <a title="EiffelStudio" href="/eiffelstudio/">EiffelStudio environment</a>, which is their direct implementation.
+</p>
+
+
+
+<h2 class="wp-block-heading">1 &#8211; Introduction</h2>
+
+
+
+<p class="wp-block-paragraph">
+When thinking of new software development methods and tools, many people tend to view <i>productivity</i> as the major expected benefit. In object technology and especially in Eiffel, productivity benefits follow not just from the immediate benefits of the approach but from its emphasis on quality. In the words of K. Fujino, Vice President of NEC Corporation&#8217;s C&amp;C Software Development Group:
+</p>
+
+
+
+<p class="quote wp-block-paragraph"><i>When quality is pursued, productivity follows</i></p>
+
+
+
+<p class="credit wp-block-paragraph">(Quoted in Carlo Ghezzi, Dino Mandrioli and Mehdi Jazayeri, <i>SoftwareEngineering</i>, Prentice Hall 1991.)
+A major component of quality in software is reliability: a system&#8217;s ability to perform its job according to the specification (<i>correctness</i>) and to handle abnormal situations (<i>robustness</i>). Put more simply, reliability is the absence of bugs.
+
+Reliability, although desirable in software construction regardless of the approach, is particularly important in the object-oriented method because of the special role given by the method to reusability: unless we can obtain reusable software components whose correctness we can trust much more than we trust the correctness of usual run-of-the-mill software, reusability is a losing proposition.
+
+How can we build reliable object-oriented software? The answer has several components. Static typing, for example, is a major help for catching inconsistencies before they have had time to become bugs. Such a technique as garbage collection, although sometimes dismissed as an implementation detail, is actually essential too, removing the specter of devious memory management errors. By itself, reusability also helps: if you are able to reuse component libraries produced and (presumably) validated by a reputable outside source, rather than developing your own solution for every single problem you encounter, you can start trusting part of the software no less than you trust the machine on which it runs. In effect, the reusable libraries become part of the &#8220;hardware-software machine&#8221; (hardware, operating system, compiler).
+
+But this is not enough. To be sure that our object-oriented software will perform properly, we need a systematic approach to specifying and implementing object-oriented software elements and their relations in a software system. This article introduces such a method, known as Design by Contract. Under the Design by Contract theory, a software system is viewed as a set of communicating components whose interaction is based on precisely defined specifications of the mutual obligations &#8212; contracts.
+
+The benefits of Design by Contract include the following:
+</p>
+
+
+
+<ul class="wp-block-list">
+<li>A better understanding of the object-oriented method and, more generally, of software construction.</li>
+
+
+
+<li>A systematic approach to building bug-free object-oriented systems.</li>
+
+
+
+<li>An effective framework for debugging, testing and, more generally, quality assurance.</li>
+
+
+
+<li>A method for documenting software components.</li>
+
+
+
+<li>Better understanding and control of the inheritance mechanism.</li>
+
+
+
+<li>A technique for dealing with abnormal cases, leading to a safe and effective language construct for exception handling.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">
+The ideas developed below are part of Eiffel which the reader is urged to view here not so much as a programming language but rather as a software development method.
+</p>
+
+
+
+<h2 class="wp-block-heading">2 &#8211; Specification and debugging</h2>
+
+
+
+<p class="wp-block-paragraph">
+To improve software reliability, the first and perhaps most difficult problem is to define as precisely as possible, for each software element, what it is supposed to do. The immediate objection is that specifying a module&#8217;s purpose will not ensure that it will achieve that specification; this is obviously true, but:
+</p>
+
+
+
+<ul class="wp-block-list">
+<li>One may reverse this proposition and note that it we don&#8217;t state what a module should do, there is little likelihood that it will do it. (The law of excluded miracles.)</li>
+
+
+
+<li>In practice, it is amazing to see how far just stating what a module should do goes towards helping to ensure that it does it.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">
+As will be seen below, the presence of a specification, even if it does not fully guarantee the module&#8217;s correctness, is a good basis for systematic testing and debugging.
+
+The Design by Contract theory, then, suggests associating a specification with every software element. These specifications (or contracts) govern the interaction of the element with the rest of the world.
+
+This presentation will not, however, advocate the use of full formal specifications. Although the work on formal specifications in general is attractive, we settle for an approach in which specifications are not necessarily exhaustive. This has the advantage that the specification language is embedded in the design and programming language (here Eiffel), whereas formal specification languages are typically non-executable or, if they are executable, can only be used for prototypes. Here our criteria are more demanding: we want our language to be used for practical commercial development and hence to yield efficient implementation. This preserves a key property of a well-understood object-oriented process: its <b>seamlessness</b>, which makes it possible to use a single notation and a single set of concepts throughout the software lifecycle, from analysis to implementation and maintenance, ensuring better mapping from solution to problem and hence, among other benefits, smoother evolution.
+</p>
+
+
+
+<h2 class="wp-block-heading">3 &#8211; The notion of contract</h2>
+
+
+
+<p class="wp-block-paragraph">
+In human affairs, contracts are written between two parties when one of them (the <i>supplier</i>) performs some task for the other (the <i>client</i>). Each party expects some benefits from the contract, and accepts some obligations in return. Usually, what one of the parties sees as an obligation is a benefit for the other. The aim of the contract document is to spell out these benefits and obligations.
+
+A tabular form such as the following (illustrating a contract between an airline and a customer) is often convenient for expressing the terms of such a contract:
+</p>
+
+
+
+<figure class="wp-block-table thin_border is-style-stripes"><table class="has-fixed-layout"><thead><tr><th></th><th><b>Obligations</b></th><th><b>Benefits</b></th></tr></thead><tbody><tr><td><b>Client</b></td><td><i>(Must ensure precondition)</i>
+
+Be at the Santa Barbara airport at least 5 minutes before scheduled departure time. Bring only acceptable baggage. Pay ticket price.</td><td><i>(May benefit from postcondition)</i>
+
+Reach Chicago.</td></tr><tr><td><b>Supplier</b></td><td><i>(Must ensure postcondition)</i>
+
+Bring customer to Chicago.</td><td><i>(May assume precondition)</i>
+
+No need to carry passenger who is late, has unacceptable baggage, or has not paid ticket price.</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">
+A contract document protects both the client, by specifying how much should be done, and the supplier, by stating that the supplier is not liable for failing to carry out tasks outside of the specified scope.
+
+The same ideas apply to software. Consider a software element <i>E</i>. To achieve its purpose (fulfil its own contract), <i>E</i> uses a certain strategy, which involves a number of subtasks, <i>t<span>1</span>, &#8230; t<span>n</span></i>. If subtask <i>t<span>i</span></i> is non-trivial, it will be achieved by calling a certain routine <i>R</i>. In other words, <i>E</i> contracts out the subtask to <i>R</i>. Such a situation should be governed by a well-defined roster of obligations and benefits &#8212; a contract.
+
+Assume for example that <i>t<span>i</span></i> is the task of inserting a certain element into a dictionary (a table where each element is identified by a certain character string used as key) of bounded capacity. The contract will be:
+</p>
+
+
+
+<figure class="wp-block-table thin_border is-style-stripes"><table class="has-fixed-layout"><thead><tr><th></th><th><b>Obligations</b></th><th><b>Benefits</b></th></tr></thead><tbody><tr><td><b>Client</b></td><td><i>(Must ensure precondition)</i>
+
+Make sure table is not full and key is a non-empty string.</td><td><i>(May benefit from postcondition)</i>
+
+Get updated table where the given element now appears, associated with the given key.</td></tr><tr><td><b>Supplier</b></td><td><i>(Must ensure postcondition)</i>
+
+Record given element in table, associated with given key.</td><td><i>(May assume precondition)</i>
+
+No need to do anything if table is full, or key is empty string.</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">
+This contract governs the relations between the routine and any potential caller. It contains the most important information that can be given about the routine: what each party in the contract must guarantee for a correct call, and what each party is entitled to in return.
+
+So important indeed is this information that we cannot remain satisfied with an informal specification of the contract as above. In the spirit of seamlessness (encouraging us to include every relevant information, at all levels, in a single software text), we should equip the routine text with a listing of the appropriate conditions. Assuming the routine is called <i>put</i>, it will look as follows in Eiffel syntax, as part of a generic class <i>DICTIONARY </i>[<i>ELEMENT</i>]:
+</p>
+
+
+
+<pre class="wp-block-preformatted"><i>put </i>(<i>x</i>:<i> ELEMENT</i>;<i> key</i>:<i> STRING</i>)<i> </i><b><span style="color: #000080;">is</span></b>
+		<span style="color: #ff0000;">-- Insert</span> <i>x</i> so that it will be retrievable through <i>key</i>.
+	<b><span style="color: #000080;">require</span></b>
+		<i>count &lt;= capacity</i>
+		<b><span style="color: #000080;">not </span></b><i>key.empty</i>
+	<b><span style="color: #000080;">do</span></b>
+		... Some insertion algorithm ...
+	<b><span style="color: #000080;">ensure</span></b>
+		<i>has </i>(<i>x</i>)
+		<i>item </i>(<i>key</i>)<i> = x </i>
+		<i>count = </i><b><span style="color: #000080;">old </span></b><i>count + 1</i>
+	<b><span style="color: #000080;">end</span></b></pre>
+
+
+
+<p class="wp-block-paragraph">
+The <b><i>require</i></b> clause introduces an input condition, or precondition; the <b><i>ensure</i></b> clause introduces an output condition, or postcondition. Both of these conditions are examples of assertions, or logical conditions (contract clauses) associated with software elements. In the precondition, <i>count</i> is the current number of elements and <i>capacity</i> is the maximum number; in the postcondition, <i>has</i> is the boolean query which tells whether a certain element is present, and <i>item</i> returns the element associated with a certain key. The notation <i><b>old</b> count</i> refers to the value of <i>count</i> on entry to the routine.
+</p>
+
+
+
+<h2 class="wp-block-heading">4 &#8211; Contracts in analysis</h2>
+
+
+
+<p class="wp-block-paragraph">
+The above example is extracted from a routine describing an implementation (although the notion of dictionary is in fact meaningful independently of any implementation concern). But the concepts are just as interesting at the analysis level. Imagine for example a model of a chemical plant, with classes such as <i>TANK</i>, <i>PIPE</i>, <i>VALVE</i>, <i>CONTROL_ROOM</i>. Each one of these classes describes a certain data abstraction &#8212; a certain type of real-world objects, characterized by the applicable features (operations). For example, <i>TANK</i> may have the following features:
+</p>
+
+
+
+<ul class="wp-block-list">
+<li>Yes/no queries: <i>is_empty, is_full&#8230;</i></li>
+
+
+
+<li>Other queries: <i>in_valve, out_valve</i> (both of type <i>VALVE</i>),<i>gauge_reading</i>, <i>capacity</i>&#8230;</li>
+
+
+
+<li>Commands: <i>fill, empty, &#8230;</i></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">
+Then to characterize a command such as <i>fill</i> we may use a precondition and postcondition as above:
+</p>
+
+
+
+<pre class="wp-block-preformatted"><i>fill</i> <b>is</b>
+		<span style="color: #ff0000;">-- Fill tank with liquid</span>
+	<b><span style="color: #000080;">require</span></b>
+		<i>in_valve.open
+		out_valve.closed</i>
+	<b><span style="color: #000080;">deferred</span></b>
+		<span style="color: #ff0000;">-- i.e., no implementation</span>
+	<b><span style="color: #000080;">ensure</span></b>
+		<i>in_valve.closed
+		out_valve.closed
+		is_full</i>
+	<b><span style="color: #000080;">end</span></b></pre>
+
+
+
+<p class="wp-block-paragraph">
+This style of analysis avoids a classic dilemma of analysis and specification: either you use a programming notation and run the risk of making premature implementation commitments; or you stick with a higher-level notation (&#8220;bubbles and arrows&#8221;) and you must remain vague, forsaking one of the major benefit of the analysis process, the ability to state and clarify delicate properties of the system. Here the notation is precise (thanks to the assertion mechanism, which may be used to capture the semantics of various operations) but avoids any implementation commitment. (There is no danger of such a commitment in the above example, since what it describes includes no software and indeed no computer yet! Here we are using the notation just as a modeling tool.)
+
+The <a href="http://www.bon-method.com/book_print_a4.pdf" target="_blank">Business Object Notation</a>, as described by Waldén and Nerson, the only O-O method that fully integrates these ideas at the analysis and design level, providing graphical notation for the ideas developed in the present article.
+</p>
+
+
+
+<h2 class="wp-block-heading">5 &#8211; Invariants</h2>
+
+
+
+<p class="wp-block-paragraph">
+Preconditions and postconditions apply to individual routines. Other kinds of assertions will characterize a class as a whole, rather than its individual routines. An assertion describing a property which holds of all instances of a class is called a <b>class invariant</b>. For example, the invariant of <i>DICTIONARY</i> could state
+</p>
+
+
+
+<pre class="wp-block-preformatted"><b><span style="color: #000080;">invariant</span></b>
+	<i>0 &lt;= count
+	count &lt;= capacity</i></pre>
+
+
+
+<p class="wp-block-paragraph">
+&nbsp;
+
+and the invariant of <i>TANK</i> could state that <i>is_full</i> really means &#8220;is approximately full&#8221;:
+</p>
+
+
+
+<pre class="wp-block-preformatted"><b><span style="color: #000080;">invariant</span></b>
+	<i>is_full = (0.97 * capacity &lt;= gauge) </i><b><span style="color: #000080;">and </span></b><i>gauge &lt;= 1.03 * capacity</i>)
+	... Other clauses ...</pre>
+
+
+
+<p class="wp-block-paragraph">
+Class invariants are consistency constraints characterizing the semantics of a class. This notion is important for configuration management and regression testing, since it describes the deeper properties of a class: not just the characteristics it has at at a certain moment of its evolution, but the constraints which must also apply to subsequent changes.
+
+Viewed from the contract theory, an invariant is a general clause which applies to the entire set of contracts defining a class.
+</p>
+
+
+
+<h2 class="wp-block-heading">6 &#8211; Documentation</h2>
+
+
+
+<p class="wp-block-paragraph">
+Another key application of contracts is to provide a standard way to document software elements &#8212; classes. To provide client programmers with a proper description of the interface properties of a class, it suffices to give them a version of the class, known as the <b>short form</b>, which is stripped of all implementation information but retains the essential usage information: the contract.
+
+In the <a title="EiffelStudio" href="/eiffelstudio/">EiffelStudio Environment</a>, you obtain the short form interactively by clicking on the Short button of the Class Tool. The output can be plain text or can be converted to any text processing format (Microsoft&#8217;s RTF, HTML for Web publishing, MIF or MML for FrameMaker, TEX, troff, Postscript etc.) through one of the environment&#8217;s predefined filters &#8212; to which you can add any of your own filters since the mechanism is completely open.
+
+The short form retains headers and assertions of exported features, as well as invariants, but discards everything else. For example:
+</p>
+
+
+
+<pre class="wp-block-preformatted"><b><span style="color: #000080;">class </span></b><i>DICTIONARY </i>[<i>ELEMENT</i>]
+<b><span style="color: #000080;">feature</span></b>
+	<i>put </i>(<i>x</i>:<i> ELEMENT</i>;<i> key</i>:<i> STRING</i>)<i> </i><b><span style="color: #000080;">is</span></b>
+			<span style="color: #ff0000;">-- Insert</span> <i>x</i> <span style="color: #ff0000;">so that it will be retrievable</span>
+			<span style="color: #ff0000;">-- through</span> <i>key</i><span style="color: #ff0000;">.</span>
+		<b><span style="color: #000080;">require</span></b>
+			<i>count &lt;= capacity</i>
+			<b><span style="color: #000080;">not</span></b><i> key.empty </i>
+		<b><span style="color: #000080;">ensure</span></b>
+			<i>has </i>(<i>x</i>)
+			<i>item </i>(<i>key</i>)<i> = x</i>
+			<i>count = </i><b><span style="color: #000080;">old </span></b><i>count + 1
+		<b><span style="color: #000080;">end</span></b></i>
+
+	... Interface specifications of other features ...
+
+<b><span style="color: #000080;">invariant</span></b>
+	<i>0 &lt;= count
+	count &lt;= capacity</i>
+<b><span style="color: #000080;">end</span></b></pre>
+
+
+
+<p class="wp-block-paragraph">
+This short form serves as the basic tool for documenting libraries and other software elements. It also serves as a central communication tool between developers. We have learned from our customers and from our own experience that emphasis on the short form facilitates software design and project management, as it encourages developers and managers to discuss the key issues (interface, specification, inter-module protocols) rather than internal details.
+</p>
+
+
+
+<h2 class="wp-block-heading">7 &#8211; Testing, debugging, quality assurance</h2>
+
+
+
+<p class="wp-block-paragraph">
+Given a class text equipped with assertions, we should ideally be able to prove mathematically that the routine implementations are consistent with the assertions. In the absence of realistic tools to do this, we can settle for the next best thing, which is to use assertions for testing.
+
+Compilation options enable the developers, class by class, what effect assertions should have if any: no assertion checking (under which assertions have no effect at all, serving as a form of standardized comments), preconditions only (the default), preconditions and postconditions, all of the above plus class invariants, all assertions.
+
+These mechanisms provide a powerful tool for finding mistakes. Assertion monitoring is a way to check what the software does against what its author thinks it does. This yields a productive approach to debugging, testing and quality assurance, in which the search for errors is not blind but based on consistency conditions provided by the developers themselves.
+
+The availability of these mechanisms is in my experience one of the most significant consequences of moving to this technology. It causes a dramatic drop in the number of bugs, and a new attitude of developers towards software reliability.
+</p>
+
+
+
+<h2 class="wp-block-heading">8 &#8211; Contracts and inheritance</h2>
+
+
+
+<p class="wp-block-paragraph">
+An important consequence of the Design by Contract theory is to yield a better understanding of the central object-oriented notions of inheritance, polymorphism, redefinition and dynamic binding.
+
+A class <i>B</i> which inherits from a class <i>A</i> may provide a new declaration for a certain inherited feature <i>r</i> of <i>A</i>. For example a specialized implementation of <i>DICTIONARY</i> might redefine the algorithm for <i>put</i>. Such redefinitions are potentially dangerous, however, as the redefined version could in principle have a completely different semantics. This is particularly worrisome in the presence of polymorphism, which means that in the call
+</p>
+
+
+
+<pre class="wp-block-preformatted"><i>a.r</i></pre>
+
+
+
+<p class="wp-block-paragraph">
+the target <i>a</i> of the call, although declared statically of type <i>A</i>, could in fact be attached at run time to an object of type <i>B</i>. Then <b>dynamic binding</b> implies that the <i>B</i> version of <i>r</i> will be called in such a case.
+
+This is a form of subcontracting: <i>A</i> subcontracts <i>r</i> to <i>B</i> for targets of the corresponding type. But a subcontractor must be bound by the original contract. A client which executes a call under the form
+</p>
+
+
+
+<pre class="wp-block-preformatted"><b><span style="color: #000080;">if </span></b><i>a.pre </i><b><span style="color: #000080;">then</span></b>
+	<i>a.r</i>
+<b><span style="color: #000080;">end</span></b></pre>
+
+
+
+<p class="wp-block-paragraph">
+must be guaranteed the contractually promised result: the call will be correctly executed since the precondition is satisfied (assuming that <i>pre</i> implies the precondition of <i>r</i>); and on exit <i>a.post</i> will be true, where <i>post</i> is the postcondition of <i>r</i>.
+
+The <b>principle of subcontracting</b> follows from these observations: a redefined version of <i>r</i> may keep or weaken the precondition; it may keep or strengthen the postcondition. Strengthening the precondition, or weakening the postcondition, would be a case of &#8220;dishonest subcontracting&#8221; and could lead to disaster. The Eiffel language rules for assertion redefinition support the principle of subcontracting.
+
+These observations shed light on the true significance of inheritance: not just a reuse, subtyping and classification mechanism, but a way to ensure compatible semantics by other means. They also provide useful guidance as to how to use inheritance properly.
+</p>
+
+
+
+<h2 class="wp-block-heading">9 &#8211; Exception handling</h2>
+
+
+
+<p class="wp-block-paragraph">
+Among the many other applications of the contract theory we may note that the theory leads naturally to a systematic approach to the thorny problem of exception handling &#8212; handling abnormal cases.
+
+A software element is always a way to fulfil a certain contract, explicit or not. An exception is the element&#8217;s inability to fulfil its contract, for any reason: a hardware failure has occurred, a called routine has failed, a software bug makes it impossible to satisfy the contract.
+
+In such cases only three responses make sense:
+</p>
+
+
+
+<ul class="wp-block-list">
+<li><b>1. Retrying</b>: an alternative strategy is available. The routine will restore the invariant and and make another attempt, using the new strategy.</li>
+
+
+
+<li><b>2. Organized panic</b>: no such alternative is available. Restore the invariant, terminate, and report failure to the caller by triggering a new exception. (The caller will itself have to choose between the same<br>three responses.)</li>
+
+
+
+<li><b>3. False alarm</b>: it is in fact possible to continue, perhaps after taking some corrective measures. This case seldom occurs (regrettably, since it is the easiest to implement!).</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">
+The exception mechanism follows directly from this analysis. It is based on the notion of &#8220;rescue clause&#8221; associated with a routine, and of &#8220;retry instruction&#8221;, which implements retrying. This is similar to clauses that occur in human contracts, to allow for exceptional, unplanned circumstances. If there is a Rescue clause, any exception occurring during the routine&#8217;s execution will interrupt the execution of the body (the <b>do</b> clause) and start execution of the Rescue clause. The clause contains one or more instructions; one of them is a <b>retry</b>, which will cause re-execution of the routine&#8217;s body (the <b>do</b> clause). An integer local entity such as <i>failure</i> is always initialized to zero on routine entry (but not, of course, after a <b>retry</b>).
+
+Here is an example illustrating the mechanism. We assume a low-level procedure <i>unsafe_transmit</i> for transmitting a message over a network. We have no control over that procedure but know that it may fail, in which case we want to try again, although after 100 unsuccessful attempts we will give up, passing on the exception to our caller. The Rescue/Retry mechanism supports this simply and directly:
+</p>
+
+
+
+<pre class="wp-block-preformatted"><i>attempt_transmission </i>(<i>message: STRING</i>)<i> </i>
+		<span style="color: #ff0000;">-- Attempt to transmit </span><span style="color: #000000;"><i>message</i> </span><span style="color: #ff0000;">over a communication line
+		-- using the low-level (e.g. C) procedure </span>
+
+<i><span style="color: #000000;">unsafe_transmit</span></i>
+		<span style="color: #ff0000;">-- which may fail, triggering an exception.
+		-- After 100 unsuccessful attempts, give up (triggering
+		-- an exception in the caller).</span>
+	<b><span style="color: #000080;">local</span></b>
+		<i>failures</i>:<i> INTEGER</i>
+	<b><span style="color: #000080;">do</span></b>
+		<i>unsafe_transmit </i>(<i>message</i>)
+	<b><span style="color: #000080;">rescue</span></b>
+		<i>failures </i>:=<i> failures + 1</i>
+		<b><span style="color: #000080;">if </span></b><i>failures &lt; 100 </i><b><span style="color: #000080;">then</span></b>
+			<b><span style="color: #000080;">retry</span></b>
+		<b><span style="color: #000080;">end</span></b>
+	<b><span style="color: #000080;">end</span></b></pre>
+
+
+
+<h2 class="wp-block-heading">10 &#8211; Further developments</h2>
+
+
+
+<p class="wp-block-paragraph">
+This article has provided an overview of the basic ideas of Design by Contract. This is a very active area of application and further research, with several books in preparation. Two areas of development are:
+</p>
+
+
+
+<ul class="wp-block-list">
+<li><b>Concurrency and distribution</b>: the principles of Design by Contract yield a fascinating solution to the problem of concurrent and distribution object-oriented programming (avoiding the so-called &#8220;inheritance anomaly&#8221; and other non-issues of O-O concurrent computation, resulting from a misunderstanding of object technology).</li>
+
+
+
+<li><b>An extended specification language</b>, allowing the expression of a richer set of assertions.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">
+Design by Contract has already been widely applied; the theory provides a powerful thread throughout the object-oriented method, and addresses many of the issues that many people are encountering as they start applying O-O techniques and languages seriously: what kind of &#8220;methodology&#8221; to apply, on what concepts to base the analysis step, how to specify components, how to document object-oriented software, how to guide the testing process and, most importantly, how to build software so that bugs do not show up in the first place.
+
+In software development, reliability should be built-in, not an afterthought.</p>
+
+			
+			</div>
+</div>
+
+<div class="large-3 col">
+	<div id="secondary" class="widget-area " role="complementary">
+		<aside id="custom_html-5" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><br/>
+<p style="text-align: center">
+	<img src="https://www.eiffel.com/wp-content/uploads/logo.png" alt="EiffelSoftware"/></p>
+<p style="text-align: center">
+	<a href="https://www.capterra.com/p/32278/EiffelStudio/" target="_blank" rel="noopener">
+<img alt="" title="" style="width: 80px; border:0" src="https://www.eiffel.com/wp-content/uploads/capterra.png" />
+</a>
+</p>
+<div class="user-review">
+<div class="title">"Hands down best."</div>
+	<p class="saying"><strong>"Navigation of the object model in a system is the best I have ever encountered.</strong> The IDE's ability to do this is thanks to the Eiffel Method and Language. There are no ambiguities to object references. I cannot recall the last time I used a text search to locate properties (attributes) or methods."</p>
+<div class="author">Larry R. (Software Developer)</div>
+</div>
+<div class="user-review">
+<div class="title">"EiffelStudio your pal and lifesaver."</div>
+	<p class="saying">"The tool is always helping you to create results very quickly. We always say, 'The compiler is your friend' and that really counts for the Eiffel compiler. I can state from experience, that <strong>if the software is compiled it runs, very stable and robust</strong>, while the software always benefits from the high quality Eiffel architecture and underlying method."</p>
+<div class="author">Paul G. (Team Lead, Software Development)</div>
+</div>
+<div class="user-review">
+	<div class="title">"State of the art software development environment."</div>
+	<p class="saying">"Eiffel is the right language and EiffelStudio the right IDE (integrated development environment) if you want to <strong>develop state of the art, reliable and correct software systems</strong>."</p>
+<div class="author">Volkan A. (Senior Software Engineer)</div>
+</div></div></aside><aside id="custom_html-7" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><br/>
+<p style="text-align: center"><a class="button orange" href="https://www.eiffel.com/eiffelstudio/product/feedback/">Feedback</a></p>
+</div></aside></div>
+</div>
+
+</div>
+</div>
+
+
+
+</main>
+
+<footer id="footer" class="footer-wrapper">
+
+	
+<!-- FOOTER 1 -->
+<div class="footer-widgets footer footer-1">
+		<div class="row large-columns-2 mb-0">
+	   		<div id="text-3" class="col pb-0 widget widget_text">			<div class="textwidget"><h2><a href="https://www.eiffel.com/company/about-us/">About Eiffel Software</a></h2>
+<p>&nbsp;</p>
+<p>Since 1985, <strong>Eiffel Software</strong> has focused on making software systems <strong>predictable and controllable by construction</strong>.</p>
+<p>&nbsp;</p>
+<p><strong>EiffelStudio</strong> reflects decades of experience in building tools where correctness is not optional, but enforced.</p>
+<p>&nbsp;</p>
+</div>
+		</div><div id="text-4" class="col pb-0 widget widget_text">			<div class="textwidget"><h2><a href="https://www.eiffel.com/resources/fan-zone/">Connect with us</a></h2>
+<p>&nbsp;</p>
+<p><a href="https://www.facebook.com/eiffelsoftware" target="_blank" rel="noopener noreferrer"><img decoding="async" src="https://www.eiffel.com/wp-content/uploads/images/logos/social/logo_facebook-50x50.png" alt="Facebook" /></a><a href="http://www.linkedin.com/company/eiffel-software" target="_blank" rel="noopener noreferrer"><img decoding="async" src="https://www.eiffel.com/wp-content/uploads/images/logos/social/logo_linkedin-50x50.png" alt="LinkedIn" /></a><a href="https://twitter.com/eiffel_software" target="_blank" rel="noopener noreferrer"><img decoding="async" src="https://www.eiffel.com/wp-content/uploads/images/logos/social/logo_twitter-50x50.png" alt="Twitter" /></a><a href="https://www.youtube.com/channel/UCT6IcRZAfa-uFD0k3Dbi_7A" target="_blank" rel="noopener noreferrer"><img decoding="async" src="https://www.eiffel.com/wp-content/uploads/images/logos/social/logo_youtube-50x50.png" alt="YouTube" /></a></p>
+<p>&nbsp;</p>
+<p>Visit the <a href="https://groups.google.com/forum/#!forum/eiffel-users">Eiffel Users group</a>.</p>
+</div>
+		</div>		</div>
+</div>
+
+<!-- FOOTER 2 -->
+<div class="footer-widgets footer footer-2 dark">
+		<div class="row dark large-columns-4 mb-0">
+	   		<div id="nav_menu-3" class="col pb-0 widget widget_nav_menu"><span class="widget-title">Values</span><div class="is-divider small"></div><div class="menu-values-footer-menu-container"><ul id="menu-values-footer-menu" class="menu"><li id="menu-item-3512" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-3512"><a href="https://www.eiffel.com/values/design-by-contract/">Design By Contract™</a></li>
+<li id="menu-item-3513" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3513"><a href="https://www.eiffel.com/values/seamless-development/">Seamless Development</a></li>
+<li id="menu-item-3514" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3514"><a href="https://www.eiffel.com/values/automatic-testing/">Automatic Testing</a></li>
+<li id="menu-item-3515" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3515"><a href="https://www.eiffel.com/values/void-safety/">Void Safety</a></li>
+<li id="menu-item-3516" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3516"><a href="https://www.eiffel.com/values/parallel-programming/">Parallel Programming</a></li>
+<li id="menu-item-5221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5221"><a href="https://www.eiffel.com/values/model-driven-development/">Model-driven Development</a></li>
+</ul></div></div><div id="nav_menu-4" class="col pb-0 widget widget_nav_menu"><span class="widget-title">Services</span><div class="is-divider small"></div><div class="menu-services-footer-menu-container"><ul id="menu-services-footer-menu" class="menu"><li id="menu-item-4305" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4305"><a href="https://www.eiffel.com/services/">Overview</a></li>
+<li id="menu-item-3518" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3518"><a href="https://www.eiffel.com/services/consulting/">Consulting</a></li>
+<li id="menu-item-3519" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3519"><a href="https://www.eiffel.com/services/custom-development/" title="Custom">Custom Development</a></li>
+<li id="menu-item-3520" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3520"><a href="https://www.eiffel.com/services/training/">Training</a></li>
+<li id="menu-item-3521" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3521"><a href="https://www.eiffel.com/services/support/">Support</a></li>
+</ul></div></div><div id="nav_menu-5" class="col pb-0 widget widget_nav_menu"><span class="widget-title">Resources</span><div class="is-divider small"></div><div class="menu-resources-footer-menu-container"><ul id="menu-resources-footer-menu" class="menu"><li id="menu-item-5103" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5103"><a target="_blank" href="https://www.eiffel.org/documentation">Documentation</a></li>
+<li id="menu-item-5422" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5422"><a target="_blank" href="https://www.eiffel.org/resources/libraries">Libraries</a></li>
+<li id="menu-item-5207" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5207"><a target="_blank" href="http://www.eiffel.org">Eiffel Community</a></li>
+<li id="menu-item-3524" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3524"><a href="https://www.eiffel.com/resources/fan-zone/">Fan Zone</a></li>
+<li id="menu-item-3526" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3526"><a href="https://www.eiffel.com/resources/presentations/">Presentations</a></li>
+<li id="menu-item-4113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4113"><a href="https://www.eiffel.com/resources/faqs/">FAQS</a></li>
+</ul></div></div><div id="nav_menu-6" class="col pb-0 widget widget_nav_menu"><span class="widget-title">Company</span><div class="is-divider small"></div><div class="menu-company-footer-menu-container"><ul id="menu-company-footer-menu" class="menu"><li id="menu-item-3528" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3528"><a href="https://www.eiffel.com/company/about-us/">About Us</a></li>
+<li id="menu-item-3532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3532"><a href="https://www.eiffel.com/company/leadership/">Leadership</a></li>
+<li id="menu-item-3531" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3531"><a href="https://www.eiffel.com/company/customers/">Customers</a></li>
+<li id="menu-item-4914" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4914"><a href="https://www.eiffel.com/posts/news/">News &#038; Events</a></li>
+<li id="menu-item-3529" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3529"><a href="https://www.eiffel.com/company/careers/">Careers</a></li>
+<li id="menu-item-4115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4115"><a href="https://www.eiffel.com/company/contact/">Contact</a></li>
+</ul></div></div>		</div>
+</div>
+
+
+
+<div class="absolute-footer dark medium-text-center small-text-center">
+  <div class="container clearfix">
+
+    
+    <div class="footer-primary pull-left">
+            <div class="copyright-footer">
+        Copyright 2026 © - <a href="/privacy-policy/">Privacy Policy</a>      </div>
+          </div>
+  </div>
+</div>
+<button type="button" id="top-link" class="back-to-top button icon invert plain fixed bottom z-1 is-outline circle hide-for-medium" aria-label="Go to top"><i class="icon-angle-up" aria-hidden="true"></i></button>
+</footer>
+
+</div>
+
+<div id="main-menu" class="mobile-sidebar no-scrollbar mfp-hide">
+
+	
+	<div class="sidebar-menu no-scrollbar ">
+
+		
+					<ul class="nav nav-sidebar nav-vertical nav-uppercase" data-tab="1">
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3363"><a href="https://www.eiffel.com/eiffelstudio/">EiffelStudio</a>
+<ul class="sub-menu nav-sidebar-ul children">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4303"><a href="https://www.eiffel.com/eiffelstudio/">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3461"><a href="https://www.eiffel.com/eiffelstudio/screenshots/">Screenshots</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3367"><a href="https://www.eiffel.com/eiffelstudio/system-requirements/">System Requirements</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5203"><a href="https://www.eiffel.com/eiffelstudio/licensing/">Licensing</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6123"><a href="/eiffelstudio/product/">Downloads</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5996"><a href="https://www.eiffel.com/eiffelstudio/buy/">Purchase</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5999"><a href="https://www.eiffel.com/eiffelstudio/purchase-enterprise/">Enterprise &#8230;</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-has-children menu-item-5113"><a href="https://www.eiffel.com/values/design-by-contract/">Values</a>
+<ul class="sub-menu nav-sidebar-ul children">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-4300"><a href="https://www.eiffel.com/values/design-by-contract/">Design By Contract™</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3374"><a href="https://www.eiffel.com/values/seamless-development/">Seamless Development</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3463"><a href="https://www.eiffel.com/values/automatic-testing/">Automatic Testing</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3464"><a href="https://www.eiffel.com/values/void-safety/">Void Safety</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3373"><a href="https://www.eiffel.com/values/parallel-programming/">Parallel Programming</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5222"><a href="https://www.eiffel.com/values/model-driven-development/">Model-driven Development</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3375"><a href="https://www.eiffel.com/services/">Services</a>
+<ul class="sub-menu nav-sidebar-ul children">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4299"><a href="https://www.eiffel.com/services/">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3465"><a href="https://www.eiffel.com/services/consulting/">Consulting</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5460"><a href="https://www.eiffel.com/services/custom-development/">Custom Development</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5054"><a href="https://www.eiffel.com/services/training/">Training</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4956"><a href="https://www.eiffel.com/services/support/">Support</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3740"><a href="https://www.eiffel.com/resources/">Resources</a>
+<ul class="sub-menu nav-sidebar-ul children">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3663"><a target="_blank" href="https://www.eiffel.org/documentation">Documentation</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5424"><a target="_blank" href="https://www.eiffel.org/resources/libraries">Libraries</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5206"><a target="_blank" href="http://www.eiffel.org">Eiffel Community</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3496"><a href="https://www.eiffel.com/resources/fan-zone/">Fan Zone</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4110"><a href="https://www.eiffel.com/resources/presentations/">Presentations</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3494"><a href="https://www.eiffel.com/resources/faqs/">FAQS</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4306"><a href="https://www.eiffel.com/company/about-us/">Company</a>
+<ul class="sub-menu nav-sidebar-ul children">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3497"><a href="https://www.eiffel.com/company/about-us/">About Us</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3504"><a href="https://www.eiffel.com/company/leadership/">Leadership</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3498"><a href="https://www.eiffel.com/company/customers/">Customers</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4913"><a href="https://www.eiffel.com/posts/news/">News &amp; Events</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3500"><a href="https://www.eiffel.com/company/careers/">Careers</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4009"><a href="https://www.eiffel.com/company/contact/">Contact</a></li>
+</ul>
+</li>
+<li class="header-divider"></li>			</ul>
+		
+		
+	</div>
+
+	
+</div>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/flatsome-child/*","/wp-content/themes/flatsome/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="wp-hooks-js" src="https://www.eiffel.com/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://www.eiffel.com/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="swv-js" src="https://www.eiffel.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.2.3"></script>
+<script id="contact-form-7-js-before">
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/www.eiffel.com\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+//# sourceURL=contact-form-7-js-before
+</script>
+<script id="contact-form-7-js" src="https://www.eiffel.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.2.3"></script>
+<script data-wp-strategy="async" id="cloudflare-turnstile-js" src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+<script id="cloudflare-turnstile-js-after">
+document.addEventListener( 'wpcf7submit', e => turnstile.reset() );
+//# sourceURL=cloudflare-turnstile-js-after
+</script>
+<script id="crisp-js-before">
+window.$crisp=[];
+    if (!window.CRISP_RUNTIME_CONFIG) {
+      window.CRISP_RUNTIME_CONFIG = {}
+    }
+
+    if (!window.CRISP_RUNTIME_CONFIG.locale) {
+      window.CRISP_RUNTIME_CONFIG.locale = 'en-us'
+    }
+
+    CRISP_WEBSITE_ID = '17a1eaa0-89f8-45d8-86b7-222e23440023';
+//# sourceURL=crisp-js-before
+</script>
+<script id="crisp-js"  async src="https://client.crisp.chat/l.js?ver=20261028"></script>
+<script id="flatsome-live-search-js" src="https://www.eiffel.com/wp-content/themes/flatsome/assets/js/extensions/flatsome-live-search.js?ver=3.20.9"></script>
+<script id="hoverIntent-js" src="https://www.eiffel.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2"></script>
+<script id="flatsome-js-js-extra">
+var flatsomeVars = {"theme":{"version":"3.20.9"},"ajaxurl":"https://www.eiffel.com/wp-admin/admin-ajax.php","rtl":"","sticky_height":"53","stickyHeaderHeight":"0","scrollPaddingTop":"0","assets_url":"https://www.eiffel.com/wp-content/themes/flatsome/assets/","lightbox":{"close_markup":"\u003Cbutton title=\"%title%\" type=\"button\" class=\"mfp-close\"\u003E\u003Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-x\"\u003E\u003Cline x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"\u003E\u003C/line\u003E\u003Cline x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"\u003E\u003C/line\u003E\u003C/svg\u003E\u003C/button\u003E","close_btn_inside":false},"user":{"can_edit_pages":false},"i18n":{"mainMenu":"Main Menu","toggleButton":"Toggle"},"options":{"cookie_notice_version":"1","swatches_layout":false,"swatches_disable_deselect":false,"swatches_box_select_event":false,"swatches_box_behavior_selected":false,"swatches_box_update_urls":"1","swatches_box_reset":false,"swatches_box_reset_limited":false,"swatches_box_reset_extent":false,"swatches_box_reset_time":300,"search_result_latency":"0","header_nav_vertical_fly_out_frontpage":1}};
+//# sourceURL=flatsome-js-js-extra
+</script>
+<script id="flatsome-js-js" src="https://www.eiffel.com/wp-content/themes/flatsome/assets/js/flatsome.js?ver=e2eddd6c228105dac048"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.eiffel.com/wp-includes/js/wp-emoji-release.min.js?ver=7.1.3"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://www.eiffel.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+
+</body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/?utm_source=w3tc&utm_medium=footer_comment&utm_campaign=free_plugin
+
+Page Caching using Disk: Enhanced 
+
+Served from: www.eiffel.com @ 2026-10-27 17:34:59 by W3 Total Cache
+-->

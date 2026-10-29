@@ -1,0 +1,231 @@
+{
+  "main": {
+    "id": "878886027ab4372b",
+    "type": "split",
+    "children": [
+      {
+        "id": "fc7562a4db0283b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea1c658e458320f0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lecture/slides/slides09.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "slides09"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d21c2b1eff66ec1a",
+    "type": "split",
+    "children": [
+      {
+        "id": "12b3db34e11a9dbb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d7c1c0818b2c0a41",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "2845d6969a686124",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "263a6d556dc27e0d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1bb641e009940c79",
+    "type": "split",
+    "children": [
+      {
+        "id": "126bef3298f2cbbd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "258eb97d3084cd95",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "lecture/notes/lect01-欢迎来到未来.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "fcb9d14381b1d5f8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "lecture/notes/lect01-欢迎来到未来.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "67b2b90acd69d4d4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "77eac017f94b20f1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "40fca4cf6f1cc631",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "lecture/notes/lect01-欢迎来到未来.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "ea1c658e458320f0",
+  "lastOpenFiles": [
+    "lecture/slides/slides10.md",
+    "lecture/notes/lect01-欢迎来到未来.md",
+    "lecture/slides/vendor/highlight.min.js",
+    "lecture/slides/vendor/tex-svg.js",
+    "lecture/slides/vendor",
+    "tools/__pycache__/slides-to-pdf.cpython-314.pyc",
+    "tools/__pycache__",
+    "lecture/slides/pdf/slides10.pdf",
+    "lecture/slides/pdf/slides09.pdf",
+    "lecture/slides/pdf/slides08.pdf",
+    "lecture/slides/pdf/slides07.pdf",
+    "lecture/slides/pdf/slides06.pdf",
+    "lecture/slides/embedded/slides9-办公 Agent 产品需求规格说明书.md",
+    "lecture/slides/embedded/slides5-royce.md",
+    "lecture/slides/img/slides10-p15.webp",
+    "lecture/slides/img/slides10-p10.webp",
+    "lecture/slides/img/slides10-p09.webp",
+    "lecture/slides/img/slides10-p03.webp",
+    "lecture/slides/img/slides10-p01.webp",
+    "lecture/slides/slides09.md",
+    "lecture/slides/img/slides9-p25.webp",
+    "lecture/slides/img/slides9-p09.webp",
+    "lecture/slides/img/slides9-p08.webp",
+    "lecture/slides/img/slides9-p07.webp",
+    "lecture/slides/img/slides9-p03.webp",
+    "lecture/slides/slides08.md",
+    "lecture/slides/slides07.md",
+    "lecture/slides/slides06.md",
+    "lecture/slides/slides05.md",
+    "lecture/slides/slides04.md",
+    "lecture/slides/slides03.md",
+    "lecture/slides/slides02.md",
+    "lecture/slides/slides01.md",
+    "Resource/blogs/openai-harness-engineering.md",
+    "Resource/docs/jj-working-copy.md",
+    "Resource/docs/jj-glossary.md",
+    "lecture/labs/lab01-Lab1-个人数字助手.md"
+  ]
+}
